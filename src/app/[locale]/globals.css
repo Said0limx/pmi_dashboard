@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --mantine-color-text: #ffffff;
+  }
+}
+
+body {
+  @apply font-sans;
+  min-height: 100vh;
+  max-width: 100vw;
+  background: linear-gradient(270.26deg, #f7faff 1.56%, #d3e0ff 99.74%);
+}
+
+html[data-mantine-color-scheme='dark'] body {
+  background: linear-gradient(109deg, #131b4b 13%, #121e64 52.1%);
+}
+
+:root[data-mantine-color-scheme='dark'] {
+  --mantine-color-body: #121e64;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* ========== Scrollbar CSS ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #d3d1d1;
+}
+:root[data-mantine-color-scheme='dark'] ::-webkit-scrollbar-track {
+  background: #313030;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b3674;
+  border-radius: 6px;
+}
+/* Handle */
+:root[data-mantine-color-scheme='dark'] ::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2b3674;
+}
+
+/* ========== Scrollbar CSS ========= */
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.text-color {
+  color: #2b3674;
+}
+
+.bg-color {
+  background-color: #fff;
+}
+
+html[data-mantine-color-scheme='dark'] .text-color {
+  color: #ffffff;
+}
+
+html[data-mantine-color-scheme='dark'] body {
+  color: #ffffff;
+}
+
+html[data-mantine-color-scheme='dark'] .bg-color {
+  background-color: #172a93cc;
+}
+
+html[data-mantine-color-scheme='dark'] .sidebar-bottom-icon path {
+  fill: #404e9a85;
+}
+
+html[data-mantine-color-scheme='dark'] .content-top-icon path {
+  fill: #2b367485;
+}
+
+.dark-mode-sun {
+  display: none;
+}
+
+.dark-mode-moon {
+  display: block;
+}
+
+html[data-mantine-color-scheme='dark'] .dark-mode-sun {
+  display: block;
+}
+
+html[data-mantine-color-scheme='dark'] .dark-mode-moon {
+  display: none;
+}
+
+.source-icon {
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 25px;
+  height: 25px;
+}
+
+.source-icon {
+  background-color: #2b3674;
+}
+
+html[data-mantine-color-scheme='dark'] .source-icon {
+  background-color: #ffffff;
+}
+
+.tooltip-line {
+  stroke: white;
+  stroke-width: 2;
+}
+
+html[data-mantine-color-scheme='dark'] .skeleton:before {
+  background-color: #2b3674;
+}
+
+html[data-mantine-color-scheme='dark'] .skeleton:after {
+  background-color: #172a93cc;
+}
+
+.mantine-table-container {
+  @apply border dark:border-[#424242] border-[#dee2e6];
+}
+.mantine-Table-table {
+  @apply dark:bg-[#0f207e] bg-white;
+}
+.mantine-Table-tbody .mantine-Table-tr {
+  @apply dark:hover:bg-[#26276e] hover:bg-slate-200;
+}

@@ -1,0 +1,42 @@
+{
+  "parserOptions": {
+    "project": ["./jsconfig.json"],
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:@next/next/recommended"
+  ],
+  "plugins": ["simple-import-sort", "react"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "rules": {
+    "no-undef": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "no-param-reassign": [
+      "error",
+      {
+        "props": false
+      }
+    ],
+    "no-nested-ternary": "off",
+    "no-underscore-dangle": "error",
+    "no-lonely-if": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    "no-unused-vars": "warn",
+    "react/prop-types": "off",
+    "react/no-unescaped-entities": "off"
+  }
+}

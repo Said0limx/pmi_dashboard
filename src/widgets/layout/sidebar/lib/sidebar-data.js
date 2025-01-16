@@ -1,0 +1,128 @@
+import {
+  IconAdjustmentsCog,
+  IconBinaryTree,
+  IconBorderAll,
+  IconBrandStackshare,
+  IconBriefcase,
+  IconCategory,
+  IconHome,
+  IconLanguage,
+  IconMap2,
+  IconMapPin,
+  IconPaint,
+  IconSettings,
+  IconUser,
+} from '@tabler/icons-react';
+
+import { Door } from '@/assets/icons';
+
+export const sidebarList = () => {
+  return [
+    {
+      id: 'general_statistics',
+      title: 'Umumiy statistika',
+      icon: IconHome,
+      type: 'page',
+      path: '/',
+      role: ['super_admin', 'admin'],
+    },
+    {
+      id: 'section_of_regions',
+      title: 'Hududlar kesimida',
+      icon: IconMapPin,
+      type: 'page',
+      path: '/section-of-regions',
+      role: ['super_admin', 'admin'],
+    },
+    {
+      id: 'classification',
+      title: 'Sohalar kesimida',
+      icon: IconBriefcase,
+      type: 'page',
+      path: '/classification',
+      role: ['super_admin', 'admin'],
+    },
+    {
+      id: 'organizations_section',
+      title: 'Tashkilotlar kesimida',
+      icon: Door,
+      type: 'page',
+      path: '/section-of-organizations',
+      role: ['super_admin', 'admin'],
+    },
+    {
+      id: 'sources',
+      title: 'Manbalar kesimida',
+      icon: IconBrandStackshare,
+      type: 'page',
+      path: '/sources',
+      role: ['super_admin', 'admin'],
+    },
+    {
+      id: 'settings',
+      title: 'Settings',
+      icon: IconSettings,
+      type: 'dropdown',
+      path: '/settings',
+      role: ['super_admin'],
+      children: [
+        {
+          id: 'strategy',
+          title: 'Strategy',
+          icon: IconBinaryTree,
+          type: 'page',
+          path: '/settings/strategy',
+        },
+        {
+          id: 'executor',
+          title: 'Executor',
+          icon: IconUser,
+          type: 'page',
+          path: '/settings/executor',
+        },
+        {
+          id: 'scales-table',
+          title: 'Scales table',
+          icon: IconBorderAll,
+          type: 'page',
+          path: '/settings/scales-table',
+        },
+        {
+          id: 'scales-settings',
+          title: 'Scales settings',
+          icon: IconAdjustmentsCog,
+          type: 'page',
+          path: '/settings/scales-settings',
+        },
+        {
+          id: 'scales-color-settings',
+          title: 'Scale color settings',
+          icon: IconAdjustmentsCog,
+          type: 'page',
+          path: '/settings/scales-color-settings',
+        },
+        {
+          id: 'colors-list',
+          title: 'Colors list',
+          icon: IconPaint,
+          type: 'page',
+          path: '/settings/colors-list',
+        },
+        {
+          id: 'soato-region',
+          title: 'Soato region',
+          icon: IconMap2,
+          type: 'page',
+          path: '/settings/soato-region',
+        },
+        {
+          id: 'translation',
+          title: 'Translation',
+          icon: IconLanguage,
+          type: 'page',
+          path: '/settings/translation',
+        },
+      ],
+    },
+  ];
+};
