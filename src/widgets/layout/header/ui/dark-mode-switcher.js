@@ -7,15 +7,15 @@ export const DarkModeSwitcher = () => {
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
   return (
     <button
-      className={`flex justify-center items-center p-[0.563rem] rounded-md bg-color flex-shrink active:scale-95`}
+      className={`flex justify-center items-center p-[0.563rem] rounded-md bg-white dark:bg-main_blue_3 flex-shrink active:scale-95`}
       onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
       aria-label='dark-mode-switcher'
     >
       <span className={`dark-mode-sun`}>
-        <Sun />
+        <Sun color={computedColorScheme === 'light' ? '#0183C6' : '#fff'} />
       </span>
       <span className={`dark-mode-moon`}>
-        <Moon />
+        <Moon color={computedColorScheme === 'light' ? '#0183C6' : '#fff'} />
       </span>
     </button>
   );

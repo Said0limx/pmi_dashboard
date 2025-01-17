@@ -3,6 +3,7 @@
 import { Loader } from '@mantine/core';
 import cookies from 'js-cookie';
 import { use, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { useRouter } from '@/i18n/routing';
 import { api } from '@/shared';
@@ -22,10 +23,7 @@ export default function OneIdAuth(props) {
           cookies.set('access-token', data.data.access_token);
           router.push('/');
         } catch (e) {
-          alert(
-            'Something went wrong',
-            JSON.stringify(e.response?.data || e.response?.message || e.message),
-          );
+          toast.error(e.response?.data?.message || 'Something went wrong');
           router.push('/login');
         } finally {
           setIsLoading(false);

@@ -15,7 +15,7 @@ export const Sidebar = () => {
   const pathname = usePathname();
   const { userDetails } = useAuthStore();
   return (
-    <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_5 text-white float-left sticky top-0'>
+    <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_4 text-white float-left sticky top-0'>
       <div className='w-full'>
         <div className='px-[27px] py-5'>
           <Link href={`/`} className='text-center' aria-label='Main logo'>

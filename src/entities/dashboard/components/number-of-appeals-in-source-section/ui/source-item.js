@@ -4,7 +4,7 @@ import { makeImageUrl } from '@/shared/utils/make-image-url';
 
 const SourceItem = ({ title, amount, iconUrl }) => {
   return (
-    <div className='p-[10px] bg-white dark:bg-[#32419B] rounded-xl flex flex-col justify-between border'>
+    <div className='p-[10px] bg-white dark:bg-main-blue rounded-xl flex flex-col justify-between border'>
       <p className='text-main_light_slate_blue text-xs mb-4 dark:text-white font-bold'>{title}</p>
       <div className='flex gap-2 items-center relative'>
         <div

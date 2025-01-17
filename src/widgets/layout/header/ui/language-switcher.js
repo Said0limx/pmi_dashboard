@@ -57,7 +57,7 @@ const LanguageSwitcher = () => {
       <motion.button
         onClick={() => toggle()}
         variants={animationCurrentLanguage}
-        className='flex justify-center w-[42px] h-[42px] items-center p-[0.563rem] bg-color text-main_medium_blue  font-medium uppercase relative z-10'
+        className='flex justify-center w-[42px] h-[42px] items-center p-[0.563rem] bg-white dark:bg-main_blue_3 text-main_medium_blue dark:text-white  font-medium uppercase relative z-10'
       >
         {languages[currentLocale]}
       </motion.button>
@@ -68,7 +68,7 @@ const LanguageSwitcher = () => {
           key={lang}
           variants={languageAnimations[index]}
           onClick={() => onSelectChange(lang.toLowerCase())}
-          className='w-[42px] h-[42px] absolute top-0 p-[0.563rem] bg-color text-main_medium_blue  font-medium uppercase last:rounded-tl-md last:rounded-bl-md'
+          className='w-[42px] h-[42px] absolute top-0 p-[0.563rem] bg-white dark:bg-main_blue_3 text-main_medium_blue dark:text-white  font-medium uppercase last:rounded-tl-md last:rounded-bl-md'
         >
           {lang}
         </motion.button>

@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Sidebar />
-      <div className='relative w-[calc(100%-250px)] ml-auto'>
+      <div className='relative w-[calc(100%-250px)] ml-auto '>
         <div className='absolute top-0 -left-36 -z-10'>
           <ContentTopIcon />
         </div>
