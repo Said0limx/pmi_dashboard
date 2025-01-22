@@ -9,6 +9,7 @@ export const useFilterStore = create(
       checkboxFields: {},
       periodFields: {},
       source_id: null,
+      order_id: null,
       authority_ids: [],
       reportViewFields: {
         report_view_id: 1,

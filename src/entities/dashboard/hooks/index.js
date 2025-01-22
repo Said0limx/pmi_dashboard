@@ -5,9 +5,7 @@ import { useFetch } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
 const useMakeBody = () => {
-  const { checkboxFields, periodFields, areaFields } = useFilterStore();
-
-  const enabled = Object.keys(checkboxFields).length === 8;
+  const { periodFields, areaFields, order_id } = useFilterStore();
 
   return {
     body: {
@@ -16,10 +14,8 @@ const useMakeBody = () => {
       period_type_id: periodFields.period_type_id || null,
       period_year_id: periodFields.period_year_id || null,
       period_month_id: periodFields.period_month_id || null,
-      period_day_id: periodFields.period_day_id || null,
-      ...checkboxFields,
+      order_id,
     },
-    enabled,
   };
 };
 
@@ -89,7 +85,7 @@ export const useTasksBySource = () => {
 export const useTasksByRegionMap = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
-    url: '/dashboard/tasks-by-region-map',
+    url: '/dashboard/region-list',
     method: 'POST',
     dataKey: null,
     body,

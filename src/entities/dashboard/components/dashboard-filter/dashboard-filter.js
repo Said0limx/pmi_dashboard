@@ -1,7 +1,7 @@
 'use client';
 import { useMounted } from '@mantine/hooks';
 
-import PeriodDaySelect from '@/entities/main-filter/components/fields/period-day-select';
+import OrderSelect from '@/entities/main-filter/components/fields/order-select';
 import PeriodMonthSelect from '@/entities/main-filter/components/fields/period-month-select';
 import PeriodSelect from '@/entities/main-filter/components/fields/period-select';
 import PeriodTypeSelect from '@/entities/main-filter/components/fields/period-type-select';
@@ -19,9 +19,9 @@ export const DashboardFilter = () => {
       <div className='grid grid-cols-6 gap-5'>
         <PeriodTypeSelect filterOptions={(data) => data.filter((item) => item.value != 1)} />
         <PeriodYearSelect />
+        <OrderSelect />
         <PeriodSelect />
         <PeriodMonthSelect />
-        <PeriodDaySelect />
         <RegionsSelect />
       </div>
     </div>

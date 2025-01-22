@@ -32,18 +32,18 @@ const DashboardBody = () => {
     <>
       <div className='grid grid-cols-2 gap-5 '>
         <DashboardMap />
-        <div>
+        {/* <div>
           <div className='grid grid-cols-2 gap-5 mb-5'>
             <DegreeOfSolvingAppeals />
             <AppealsCountByEmployment />
           </div>
           <DashboardRegionsBar />
-        </div>
+        </div> */}
       </div>
-      <div className='grid xl:grid-cols-2 gap-5'>
+      {/* <div className='grid xl:grid-cols-2 gap-5'>
         <NumberOfAppealsInSourceSection />
         <DemographicViewOfApplicantsByAge />
-      </div>
+      </div> */}
     </>
   );
 };

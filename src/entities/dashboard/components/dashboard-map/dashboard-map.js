@@ -67,7 +67,7 @@ export const DashboardMap = () => {
                 </div>
               </div>
               <div className='flex justify-center mt-5'>
-                <UzbekistanMap data={data.right?.filter((el) => el.id != 9999)} />
+                <UzbekistanMap data={data.data?.filter((el) => el.id != 9999)} />
               </div>
             </div>
             <NumberOfAppeals />

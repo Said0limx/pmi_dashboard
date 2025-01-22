@@ -157,6 +157,14 @@ export const useSourceList = ({ options, onSuccess } = {}) => {
     ...options,
   });
 };
+export const useOrderList = ({ options, onSuccess } = {}) => {
+  return useFetch({
+    key: 'order/list',
+    url: '/order/list',
+    onSuccess,
+    ...options,
+  });
+};
 export const useRegionsList = ({ options, onSuccess } = {}) => {
   return useFetch({
     key: 'soato/region-list',
