@@ -2,8 +2,7 @@ import { Tooltip } from '@mantine/core';
 
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { colors } from '@/shared/variables/colors';
-
-const YEAR_TYPE = 2;
+import { YEARLY } from '@/shared/variables/period-type-types';
 
 const UzbekistanMap = ({ data }) => {
   const { areaFields, setAreaField, periodFields } = useFilterStore();
@@ -37,7 +36,7 @@ const UzbekistanMap = ({ data }) => {
         return (
           <Tooltip
             color='#1a759f'
-            label={`${region.title}: ${periodFields.period_type_id === YEAR_TYPE ? region.year_amount : region.plan_amount}`}
+            label={`${region.title}: ${periodFields.period_type_id === YEARLY ? region.year_amount : region.plan_amount}`}
             key={region.id}
           >
             <path

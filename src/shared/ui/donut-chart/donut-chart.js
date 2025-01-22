@@ -11,6 +11,7 @@ export const DonutChart = ({
   width = 190,
   height = 190,
   className = 'w-[190px] h-[190px] flex items-center',
+  countUpProps = { separator: ' ' },
 }) => {
   if (!data.length) {
     return null;
@@ -25,9 +26,9 @@ export const DonutChart = ({
     <div className='relative'>
       <div className='absolute  w-full h-full flex-col flex items-center justify-center'>
         <p
-          className={`${totalAmountLength >= 7 ? 'text-[32px] leading-[48px]' : 'text-[36px] leading-[58px]'}  tracking-tightest font-bold text-color`}
+          className={`${totalAmountLength >= 7 ? 'text-[28px] leading-8' : 'text-[36px] leading-[58px]'}  tracking-tightest font-bold text-color`}
         >
-          <CountUp end={totalAmount} duration={2} separator=' ' />
+          <CountUp end={totalAmount} duration={2} {...countUpProps} />
         </p>
 
         {/* <PercentBadge percent={percent} withBg /> */}

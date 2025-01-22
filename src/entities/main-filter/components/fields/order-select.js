@@ -1,6 +1,5 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
 
 import { useOrderList } from '@/shared/api-hooks/main-filter';
 import { useFilterStore } from '@/shared/store/use-filter-store';

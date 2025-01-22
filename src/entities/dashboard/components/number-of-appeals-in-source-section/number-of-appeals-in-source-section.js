@@ -32,7 +32,7 @@ export const NumberOfAppealsInSourceSection = () => {
         )}
         {!isLoading && (
           <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
-            <Title className='sticky top-0 p-5'>{t('Murojaatlar soni manbalar kesimida')}</Title>
+            <Title className='sticky top-0 p-5'>{t('Sohalar bo‘yicha prognozlar')}</Title>
             <Sources data={data} />
           </motion.div>
         )}

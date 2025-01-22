@@ -12,6 +12,7 @@ import ChartLabels from '../../ui/chart-labels';
 export const AppealsCountByEmployment = () => {
   const { data, isLoading, isFetching, isError, error } = useTasksEmploymentType();
   const t = useTranslations();
+
   if (isError) {
     return (
       <ContentBox>
@@ -44,14 +45,23 @@ export const AppealsCountByEmployment = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Title size='lg'>{t('Murojaatlar soni bandlik toifasi bo’yicha')}</Title>
+            <Title size='lg'>{t('Mamlakatlar bo‘yicha loyihalar soni')}</Title>
             <div className='flex items-center gap-3 mt-4'>
               <DonutChart
-                totalAmount={data?.total_amount}
-                percent={data?.percentage}
-                data={data?.data}
+                totalAmount={data?.headers.total_amount}
+                data={data?.data.map((item) => ({
+                  ...item,
+                  amount: item.project_amount,
+                }))}
+                series={data?.data.map((item) => item.project_amount)}
               />
-              <ChartLabels data={data?.data} chartLabelItemClass={'py-2'} />
+              <ChartLabels
+                data={data?.data.map((item) => ({
+                  ...item,
+                  amount: item.project_amount,
+                }))}
+                chartLabelItemClass={'py-2'}
+              />
             </div>
           </motion.div>
         )}

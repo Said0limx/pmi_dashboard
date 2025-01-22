@@ -35,7 +35,7 @@ export const useTasksAmount = () => {
 export const useTasksEmploymentType = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
-    url: '/dashboard/tasks-employment-type',
+    url: '/dashboard/abroad-country-list',
     method: 'POST',
     dataKey: null,
     body,
@@ -48,7 +48,7 @@ export const useTasksEmploymentType = () => {
 export const useTasksResultType = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
-    url: '/dashboard/tasks-result-type',
+    url: '/dashboard/source-list',
     method: 'POST',
     dataKey: null,
     body,
@@ -73,7 +73,7 @@ export const useTasksByCitizenAge = () => {
 export const useTasksBySource = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
-    url: '/dashboard/tasks-by-source',
+    url: '/dashboard/sphere-list',
     method: 'POST',
     body,
     queryOptions: {

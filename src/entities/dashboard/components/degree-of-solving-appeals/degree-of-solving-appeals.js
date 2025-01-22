@@ -4,11 +4,15 @@ import { useTranslations } from 'next-intl';
 
 import { useTasksResultType } from '@/entities/dashboard/hooks';
 import ChartLabels from '@/entities/dashboard/ui/chart-labels';
+import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, DonutChart, Loader, LoadingOverlay, Title } from '@/shared/ui';
+import { YEARLY } from '@/shared/variables/period-type-types';
 
 export const DegreeOfSolvingAppeals = () => {
   const { data, isLoading, isFetching, isError, error } = useTasksResultType();
   const t = useTranslations();
+  const { periodFields } = useFilterStore();
+
   if (isError) {
     return (
       <ContentBox>
@@ -43,12 +47,27 @@ export const DegreeOfSolvingAppeals = () => {
               justifyContent: 'space-between',
             }}
           >
-            <Title size='lg'> {t('Murojaatlarning hal etish darajasi')} </Title>
+            <Title size='lg'>{t('Moliyalashtirish manbalari bo‘yicha jami')} </Title>
             <div className='flex items-center gap-3 mt-4'>
               <DonutChart
-                totalAmount={data?.total_amount}
-                percent={data?.percentage}
-                data={data?.data}
+                totalAmount={
+                  periodFields.period_type_id === YEARLY
+                    ? data.headers.total_year_amount
+                    : data.headers.total_plan_amount
+                }
+                data={data?.data.map((item) => ({
+                  ...item,
+                  amount:
+                    periodFields.period_type_id === YEARLY ? item.year_amount : item.plan_amount,
+                  percentage:
+                    periodFields.period_type_id === YEARLY
+                      ? item.year_percentage
+                      : item.plan_percentage,
+                }))}
+                countUpProps={{
+                  decimals: 4,
+                  prefix: '$',
+                }}
               />
               <ChartLabels
                 data={data?.data}
