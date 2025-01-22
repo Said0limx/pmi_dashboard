@@ -22,7 +22,7 @@ const useMakeBody = () => {
 export const useTasksAmount = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
-    url: '/dashboard/tasks-amount',
+    url: '/dashboard/stage-list',
     method: 'POST',
     dataKey: null,
     body,

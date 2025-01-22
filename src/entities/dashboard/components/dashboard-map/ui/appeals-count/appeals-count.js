@@ -1,12 +1,15 @@
 import { useTranslations } from 'next-intl';
 
 import { useTasksAmount } from '@/entities/dashboard/hooks';
-import { PercentBadge } from '@/shared/ui';
-import { formatNumber, toFixed } from '@/shared/utils';
+import { useFilterStore } from '@/shared/store/use-filter-store';
+import { formatNumber } from '@/shared/utils';
+import { YEARLY } from '@/shared/variables/period-type-types';
 
 export const NumberOfAppeals = () => {
   const { data, isFetching } = useTasksAmount();
   const t = useTranslations();
+  const { periodFields } = useFilterStore();
+
   if (isFetching) {
     return null;
   }
@@ -17,11 +20,23 @@ export const NumberOfAppeals = () => {
           'bg-white dark:bg-main-blue h-full rounded-lg p-4 flex flex-col items-center justify-center'
         }
       >
-        <div className={'text-color text-xl font-semibold'}>{t('Jami soni')}</div>
+        <div className={'text-color text-xl font-semibold'}>{t('Loyihalar soni')}</div>
         <div className={'text-4xl text-color font-bold text-center '}>
-          {formatNumber(data?.total_amount || '')}
+          {formatNumber(data?.headers?.total_project_amount || '')}
         </div>
-        <PercentBadge percent={data?.percentage} />
+      </div>
+      <div
+        className={
+          'bg-white dark:bg-main-blue h-full rounded-lg p-4 flex flex-col items-center justify-center'
+        }
+      >
+        <div className={'text-color text-xl font-semibold'}>{t('Prognoz')}</div>
+        <div className={'text-4xl text-color font-bold text-center '}>
+          $
+          {(periodFields.period_type_id === YEARLY
+            ? data?.headers?.total_year_amount
+            : data?.headers?.total_plan_amount) || ''}
+        </div>
       </div>
       <div className={'flex flex-col gap-2 flex-1'}>
         {data?.data?.map((item) => {
@@ -35,7 +50,7 @@ export const NumberOfAppeals = () => {
               <div className={'text-color font-semibold'}>{item.title}</div>
               <div className={'flex items-center gap-2'}>
                 <div className={'text-color text-2xl font-semibold'}>
-                  {formatNumber(item.amount)}
+                  {formatNumber(item.project_amount)}
                 </div>
               </div>
             </div>
