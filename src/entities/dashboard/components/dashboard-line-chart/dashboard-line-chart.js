@@ -7,7 +7,7 @@ import { useLineChart } from '../../hooks';
 
 function DashboardLineChart() {
   const { data, isLoading } = useLineChart();
-  const { t } = useTranslations();
+  const t = useTranslations();
   return (
     <div>
       <Title>{t('Oylar kesimida o‘zlashtirish')}</Title>

@@ -16,7 +16,7 @@ import { colors } from '@/shared/variables/colors';
 
 const LineView = ({ data, headers, isLoading }) => {
   const stroke = useStrokeColor();
-  const { t } = useTranslations();
+  const t = useTranslations();
 
   const monthObject = headers?.reduce((acc, el) => ({ ...acc, [el.value]: el.title }), {});
   const mappedData = data?.map((el) => {
