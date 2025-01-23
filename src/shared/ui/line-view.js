@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import {
   CartesianGrid,
   Legend,
@@ -15,6 +16,7 @@ import { colors } from '@/shared/variables/colors';
 
 const LineView = ({ data, headers, isLoading }) => {
   const stroke = useStrokeColor();
+  const { t } = useTranslations();
 
   const monthObject = headers?.reduce((acc, el) => ({ ...acc, [el.value]: el.title }), {});
   const mappedData = data?.map((el) => {
@@ -30,33 +32,21 @@ const LineView = ({ data, headers, isLoading }) => {
     return null;
   }
 
+  const titlesObject = {
+    plan_amount: t('Reja'),
+    fact_amount: t('Fakt'),
+  };
+
   return (
     <ResponsiveContainer height={300}>
       <LineChart data={mappedData}>
         <CartesianGrid strokeDasharray='3 3' stroke={stroke} />
         <XAxis dataKey='period' stroke={stroke} />
         <YAxis stroke={stroke} />
-        <Tooltip
-          content={
-            <CustomTooltipRecharts
-              title={'Summa'}
-              titlesObject={{
-                plan_amount: 'План',
-                fact_amount: 'Факт',
-              }}
-            />
-          }
-        />
+        <Tooltip content={<CustomTooltipRecharts title={'Summa'} titlesObject={titlesObject} />} />
         <Legend
           verticalAlign='top'
-          content={
-            <CustomLegendRecharts
-              titlesObject={{
-                plan_amount: 'План',
-                fact_amount: 'Факт',
-              }}
-            />
-          }
+          content={<CustomLegendRecharts titlesObject={titlesObject} />}
         />
         <Line
           type='monotone'
