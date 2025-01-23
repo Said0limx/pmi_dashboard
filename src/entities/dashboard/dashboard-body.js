@@ -12,6 +12,8 @@ import { NumberOfAppealsInSourceSection } from '@/entities/dashboard/components/
 import { useValidateParams } from '@/shared/hooks/use-validate-params';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
+import DashboardLineChart from './components/dashboard-line-chart/dashboard-line-chart';
+
 const DashboardBody = () => {
   const {
     classificationFields: { is_dashboard_classification },
@@ -37,6 +39,8 @@ const DashboardBody = () => {
             <DegreeOfSolvingAppeals />
             <AppealsCountByEmployment />
           </div>
+          <DashboardLineChart />
+
           {/* <DasshboardRegionsBar /> */}
         </div>
       </div>

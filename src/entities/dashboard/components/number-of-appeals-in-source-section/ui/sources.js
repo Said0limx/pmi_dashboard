@@ -11,7 +11,7 @@ const Sources = ({ data }) => {
       {data?.map((source) => (
         <SourceItem
           key={source.id}
-          iconUrl={source.src_url}
+          iconUrl={source.icon_file}
           title={source.title}
           amount={periodFields.period_type_id === YEARLY ? source.year_amount : source.plan_amount}
           percent={source.percentage}

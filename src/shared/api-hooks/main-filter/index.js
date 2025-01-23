@@ -167,9 +167,10 @@ export const useOrderList = ({ options, onSuccess } = {}) => {
 };
 export const useRegionsList = ({ options, onSuccess } = {}) => {
   return useFetch({
-    key: 'soato/region-list',
-    url: '/soato/region-list',
+    key: 'soato-region/list',
+    url: '/soato-region/list',
     onSuccess,
+    params: { is_parent: true },
     ...options,
   });
 };

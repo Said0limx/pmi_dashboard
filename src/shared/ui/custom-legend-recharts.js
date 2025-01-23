@@ -1,8 +1,6 @@
 import { colors } from '@/shared/variables/colors';
 
-export const CustomLegendRecharts = (props) => {
-  const { payload, titlesObject } = props;
-
+export const CustomLegendRecharts = ({ payload, titlesObject }) => {
   return (
     <ul className='flex justify-center flex-wrap gap-x-4 gap-y-2 mb-4'>
       {payload.map((entry, index) => (

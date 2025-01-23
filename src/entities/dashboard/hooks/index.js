@@ -96,6 +96,20 @@ export const useTasksByRegionMap = () => {
   });
 };
 
+export const useLineChart = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/dashboard/line-chart',
+    method: 'POST',
+    dataKey: null,
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
+
 export const useClassificationsList = ({ onSuccess, extraBody = {}, queryOptions = {} } = {}) => {
   const { body, enabled } = useMakeBody();
 
