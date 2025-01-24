@@ -1,6 +1,7 @@
 'use client';
 import { useComputedColorScheme } from '@mantine/core';
 import { BarElement, CategoryScale, Chart, Legend, LinearScale } from 'chart.js';
+import zoomPlugin from 'chartjs-plugin-zoom';
 import { useRef } from 'react';
 import { Bar, getElementAtEvent } from 'react-chartjs-2';
 
@@ -8,7 +9,7 @@ import { useFilterStore } from '@/shared/store/use-filter-store';
 
 import { useAdjustData } from '../hooks/use-adjust-data';
 
-Chart.register([Legend, CategoryScale, LinearScale, BarElement]);
+Chart.register([Legend, CategoryScale, LinearScale, BarElement, zoomPlugin]);
 
 const SectionRegionBarChart = ({ data = [] }) => {
   const { setAreaField, areaFields } = useFilterStore();
@@ -18,14 +19,14 @@ const SectionRegionBarChart = ({ data = [] }) => {
   const { backgroundColors, datasets, labels } = useAdjustData(data);
   const chartRef = useRef();
 
-  const handeClick = (event) => {
-    if (getElementAtEvent(chartRef.current, event).length > 0) {
-      const dataPoint = getElementAtEvent(chartRef.current, event)[0].index;
-      if (!areaFields.region_id && data[dataPoint].id !== 9999) {
-        setAreaField('region_id', data[dataPoint].id);
-      }
-    }
-  };
+  // const handeClick = (event) => {
+  //   if (getElementAtEvent(chartRef.current, event).length > 0) {
+  //     const dataPoint = getElementAtEvent(chartRef.current, event)[0].index;
+  //     if (!areaFields.region_id && data[dataPoint].id !== 9999) {
+  //       setAreaField('region_id', data[dataPoint].id);
+  //     }
+  //   }
+  // };
 
   return (
     <Bar
@@ -60,9 +61,25 @@ const SectionRegionBarChart = ({ data = [] }) => {
           legend: {
             display: false,
           },
+
+          // zoom: {
+          //   pan: {
+          //     enabled: true,
+          //     mode: 'x',
+          //   },
+          //   zoom: {
+          //     pinch: {
+          //       enabled: true, // Enable pinch zooming
+          //     },
+          //     wheel: {
+          //       enabled: true, // Enable wheel zooming
+          //     },
+          //     mode: 'x',
+          //   },
+          // },
         },
       }}
-      onClick={handeClick}
+      // onClick={handeClick}
     />
   );
 };

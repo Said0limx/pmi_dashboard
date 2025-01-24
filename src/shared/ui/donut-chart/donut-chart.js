@@ -8,9 +8,9 @@ export const DonutChart = ({
   totalAmount,
   // percent,
   data = [],
-  width = 190,
-  height = 190,
-  className = 'w-[190px] h-[190px] flex items-center',
+  width = 250,
+  height = 250,
+  className = 'w-[250px] h-[250px] flex items-center',
   countUpProps = { separator: ' ' },
 }) => {
   if (!data.length) {

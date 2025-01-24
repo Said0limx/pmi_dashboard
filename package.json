@@ -27,6 +27,7 @@
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "chartjs-plugin-zoom": "^2.2.0",
     "dayjs": "^1.11.13",
     "framer-motion": "^11.2.12",
     "i18next-parser": "^9.0.1",

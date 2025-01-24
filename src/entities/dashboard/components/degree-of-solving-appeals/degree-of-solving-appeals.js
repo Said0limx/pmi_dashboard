@@ -52,8 +52,8 @@ export const DegreeOfSolvingAppeals = () => {
               <DonutChart
                 totalAmount={
                   periodFields.period_type_id === YEARLY
-                    ? data.headers.total_year_amount
-                    : data.headers.total_plan_amount
+                    ? data.headers.total_year_amount / 1000
+                    : data.headers.total_plan_amount / 1000
                 }
                 data={data?.data.map((item) => ({
                   ...item,

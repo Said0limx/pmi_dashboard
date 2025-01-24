@@ -7,11 +7,11 @@ import { DashboardMap } from '@/entities/dashboard/components/dashboard-map/dash
 import { DashboardRegionsBar } from '@/entities/dashboard/components/dashboard-regions-bar/dashboard-regions-bar';
 import DashboardSkeleton from '@/entities/dashboard/components/dashboard-skeleton/dashboard-skeleton';
 import { DegreeOfSolvingAppeals } from '@/entities/dashboard/components/degree-of-solving-appeals/degree-of-solving-appeals';
-import { DemographicViewOfApplicantsByAge } from '@/entities/dashboard/components/demographic-view-of-applicants-by-age';
 import { NumberOfAppealsInSourceSection } from '@/entities/dashboard/components/number-of-appeals-in-source-section';
 import { useValidateParams } from '@/shared/hooks/use-validate-params';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
+import AuthorityBarChartContainer from './components/authority-bar-chart-container';
 import DashboardLineChart from './components/dashboard-line-chart/dashboard-line-chart';
 
 const DashboardBody = () => {
@@ -35,17 +35,18 @@ const DashboardBody = () => {
       <div className='grid grid-cols-2 gap-5 '>
         <DashboardMap />
         <div>
-          <div className='grid grid-cols-2 gap-5 mb-5'>
+          <div className='mb-5'>
             <DegreeOfSolvingAppeals />
-            <AppealsCountByEmployment />
+            {/* <AppealsCountByEmployment /> */}
           </div>
-          <DashboardLineChart />
+          <DashboardRegionsBar />
         </div>
       </div>
       <div className='grid xl:grid-cols-2 gap-5'>
         <NumberOfAppealsInSourceSection />
-        <DashboardRegionsBar />
+        <DashboardLineChart />
       </div>
+      <AuthorityBarChartContainer />
     </>
   );
 };
