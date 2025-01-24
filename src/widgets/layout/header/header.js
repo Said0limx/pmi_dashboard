@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <div className='w-full py-5 flex justify-between items-center'>
       <h1 className='text-color text-[2.125rem] font-bold leading-[2.625rem]'>
-        {pageTitleKey ? t(pageTitleKey) : t('main_dashboard')}
+        {pageTitleKey ? t(pageTitleKey) : t('Dashboard')}
       </h1>
       <div className='flex justify-between items-center gap-3'>
         <UserDetail />

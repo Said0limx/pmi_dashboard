@@ -96,6 +96,20 @@ export const useTasksByRegionMap = () => {
   });
 };
 
+export const useDashboardAuthorityList = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/dashboard/authority-list',
+    method: 'POST',
+    dataKey: null,
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
+
 export const useLineChart = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({

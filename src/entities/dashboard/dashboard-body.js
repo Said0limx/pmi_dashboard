@@ -40,13 +40,11 @@ const DashboardBody = () => {
             <AppealsCountByEmployment />
           </div>
           <DashboardLineChart />
-
-          {/* <DasshboardRegionsBar /> */}
         </div>
       </div>
       <div className='grid xl:grid-cols-2 gap-5'>
         <NumberOfAppealsInSourceSection />
-        {/* <DemographicViewOfApplicantsByAge /> */}
+        <DashboardRegionsBar />
       </div>
     </>
   );

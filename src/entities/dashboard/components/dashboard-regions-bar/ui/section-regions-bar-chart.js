@@ -2,13 +2,14 @@
 import { useComputedColorScheme } from '@mantine/core';
 import { BarElement, CategoryScale, Chart, Legend, LinearScale } from 'chart.js';
 import { useRef } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, getElementAtEvent } from 'react-chartjs-2';
 
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
 import { useAdjustData } from '../hooks/use-adjust-data';
-import { onClick } from '../lib/bar-onclick';
+
 Chart.register([Legend, CategoryScale, LinearScale, BarElement]);
+
 const SectionRegionBarChart = ({ data = [] }) => {
   const { setAreaField, areaFields } = useFilterStore();
 
@@ -16,6 +17,15 @@ const SectionRegionBarChart = ({ data = [] }) => {
   const color = colorScheme === 'dark' ? '#ffffff' : '#000000';
   const { backgroundColors, datasets, labels } = useAdjustData(data);
   const chartRef = useRef();
+
+  const handeClick = (event) => {
+    if (getElementAtEvent(chartRef.current, event).length > 0) {
+      const dataPoint = getElementAtEvent(chartRef.current, event)[0].index;
+      if (!areaFields.region_id && data[dataPoint].id !== 9999) {
+        setAreaField('region_id', data[dataPoint].id);
+      }
+    }
+  };
 
   return (
     <Bar
@@ -52,7 +62,7 @@ const SectionRegionBarChart = ({ data = [] }) => {
           },
         },
       }}
-      onClick={(event) => onClick(event, chartRef, data, setAreaField, areaFields)}
+      onClick={handeClick}
     />
   );
 };

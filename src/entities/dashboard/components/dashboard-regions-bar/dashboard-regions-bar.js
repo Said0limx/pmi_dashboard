@@ -4,13 +4,13 @@ import { useTranslations } from 'next-intl';
 
 import { ClassificationButton } from '@/entities/dashboard/components/dashboard-regions-bar/ui/classification-button';
 import SectionRegionBarChart from '@/entities/dashboard/components/dashboard-regions-bar/ui/section-regions-bar-chart';
-import { useTasksByRegionMap } from '@/entities/dashboard/hooks';
+import { useDashboardAuthorityList } from '@/entities/dashboard/hooks';
 import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
 export const DashboardRegionsBar = () => {
   const t = useTranslations();
-  const { data = {}, isLoading, isFetching, isError, error } = useTasksByRegionMap();
-  const dataTable = data?.right || [];
+  const { data = {}, isLoading, isFetching, isError, error } = useDashboardAuthorityList();
+  const dataTable = data?.data?.slice(0, 15) || [];
   if (isError) {
     return (
       <ContentBox>
@@ -44,7 +44,8 @@ export const DashboardRegionsBar = () => {
             viewport={{ once: true }}
           >
             <div className='flex gap-2 items-center mb-2 justify-between'>
-              <Title size='lg'>{t('Murojaatlar')}</Title> <ClassificationButton />
+              <Title size='lg'>{t('Tashabbuskorlarning o‘zlashtirish foizi')}</Title>{' '}
+              {/* <ClassificationButton /> */}
             </div>
             <SectionRegionBarChart data={dataTable} />
           </motion.div>
