@@ -32,7 +32,7 @@ export const useTasksAmount = () => {
     },
   });
 };
-export const useTasksEmploymentType = () => {
+export const useAbroadCountryList = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
     url: '/dashboard/abroad-country-list',

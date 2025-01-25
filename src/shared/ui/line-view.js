@@ -43,7 +43,7 @@ const LineView = ({ data, headers, isLoading }) => {
         <CartesianGrid strokeDasharray='3 3' stroke={stroke} />
         <XAxis dataKey='period' stroke={stroke} />
         <YAxis stroke={stroke} />
-        <Tooltip content={<CustomTooltipRecharts title={'Summa'} titlesObject={titlesObject} />} />
+        <Tooltip content={<CustomTooltipRecharts titlesObject={titlesObject} />} />
         <Legend
           verticalAlign='top'
           content={<CustomLegendRecharts titlesObject={titlesObject} />}

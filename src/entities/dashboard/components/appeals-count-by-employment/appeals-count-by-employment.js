@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
-import { useTasksEmploymentType } from '@/entities/dashboard/hooks';
+import { useAbroadCountryList } from '@/entities/dashboard/hooks';
 import { DonutChart, Loader, LoadingOverlay } from '@/shared/ui';
 import { ContentBox } from '@/shared/ui/content-box';
 import { Title } from '@/shared/ui/title';
@@ -10,7 +10,7 @@ import { Title } from '@/shared/ui/title';
 import ChartLabels from '../../ui/chart-labels';
 
 export const AppealsCountByEmployment = () => {
-  const { data, isLoading, isFetching, isError, error } = useTasksEmploymentType();
+  const { data, isLoading, isFetching, isError, error } = useAbroadCountryList();
   const t = useTranslations();
 
   if (isError) {

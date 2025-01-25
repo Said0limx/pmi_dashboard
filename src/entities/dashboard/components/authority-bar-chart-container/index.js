@@ -1,17 +1,14 @@
-'use client';
-import { Legend, Tooltip } from 'chart.js';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { Bar } from 'react-chartjs-2';
-import { BarChart, CartesianGrid, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
+import { formatNumber } from '@/shared/utils';
 
-import { useTasksEmploymentType } from '../../hooks';
+import { useAbroadCountryList } from '../../hooks';
 import AuthorityBarChart from './authority-bar-chart';
 
 function AuthorityBarChartContainer() {
-  const { data, isLoading, isFetching, isError, error } = useTasksEmploymentType();
+  const { data, isLoading, isFetching, isError, error } = useAbroadCountryList();
   const t = useTranslations();
 
   if (isError) {
@@ -47,8 +44,11 @@ function AuthorityBarChartContainer() {
               justifyContent: 'space-between',
             }}
           >
-            <Title size='lg'>{t('Mamlakatlar bo‘yicha loyihalar soni')}</Title>
-            <AuthorityBarChart />
+            <Title size='lg' className='text-center'>
+              {t('Mamlakatlar bo‘yicha loyihalar soni')}:{' '}
+              {formatNumber(data?.headers?.total_amount)}
+            </Title>
+            <AuthorityBarChart data={data?.data} />
           </motion.div>
         )}
       </ContentBox>
