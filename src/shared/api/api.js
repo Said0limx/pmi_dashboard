@@ -1,7 +1,7 @@
+'use client';
 import axios from 'axios';
 import https from 'https';
 import ClientCookies from 'js-cookie';
-import { redirect } from 'next/navigation';
 
 import { redirectAction } from '@/shared/server-actions';
 
@@ -12,27 +12,16 @@ export const api = axios.create({
   }),
 });
 
-const isServer = typeof window === 'undefined';
-
 api.interceptors.request.use(
   async (config) => {
     const lang = window.location.pathname.split('/')[1];
 
     config.headers['Accept-Language'] = lang;
     if (!config.headers.Authorization) {
-      if (isServer) {
-        const { cookies: ServerCookies } = await import('next/headers');
-        const token = ServerCookies().get('access-token')?.value;
+      const token = ClientCookies.get('access-token');
 
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
-      } else {
-        const token = ClientCookies.get('access-token');
-
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
       }
     }
 
@@ -64,7 +53,6 @@ api.interceptors.response.use(
     const originalRequest = error.config;
     if (
       error.response?.status === 401 &&
-      !isServer &&
       !originalRequest.retry &&
       originalRequest.url !== 'auth/refresh-token'
     ) {
@@ -95,13 +83,9 @@ api.interceptors.response.use(
       } catch (err) {
         processQueue(err, null);
 
-        if (isServer) {
-          redirect('/uz/login');
-        } else {
-          const lang = window.location.pathname.split('/')[1];
-          ClientCookies.remove('access-token');
-          redirectAction(`/${lang}/login`);
-        }
+        const lang = window.location.pathname.split('/')[1];
+        ClientCookies.remove('access-token');
+        redirectAction(`/${lang}/login`);
       } finally {
         isRefreshing = false;
       }

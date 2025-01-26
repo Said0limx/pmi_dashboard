@@ -46,7 +46,7 @@ function AuthorityBarChartContainer() {
           >
             <Title size='lg' className='text-center'>
               {t('Mamlakatlar bo‘yicha loyihalar soni')}:{' '}
-              {formatNumber(data?.headers?.total_amount)}
+              <span className='text-xl'>{formatNumber(data?.headers?.total_amount)}</span>
             </Title>
             <AuthorityBarChart data={data?.data} />
           </motion.div>

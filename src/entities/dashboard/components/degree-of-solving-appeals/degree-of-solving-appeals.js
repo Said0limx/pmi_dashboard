@@ -50,19 +50,11 @@ export const DegreeOfSolvingAppeals = () => {
             <Title size='lg'>{t('Moliyalashtirish manbalari bo‘yicha jami')} </Title>
             <div className='flex items-center gap-3 mt-4'>
               <DonutChart
-                totalAmount={
-                  periodFields.period_type_id === YEARLY
-                    ? data.headers.total_year_amount / 1000
-                    : data.headers.total_plan_amount / 1000
-                }
+                totalAmount={data.headers.total_fact_amount}
                 data={data?.data.map((item) => ({
                   ...item,
-                  amount:
-                    periodFields.period_type_id === YEARLY ? item.year_amount : item.plan_amount,
-                  percentage:
-                    periodFields.period_type_id === YEARLY
-                      ? item.year_percentage
-                      : item.plan_percentage,
+                  amount: item.fact_amount,
+                  percentage: item.fact_percentage,
                 }))}
                 countUpProps={{
                   decimals: 4,
