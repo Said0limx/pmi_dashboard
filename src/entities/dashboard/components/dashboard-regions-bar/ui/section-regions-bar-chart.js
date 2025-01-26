@@ -12,25 +12,24 @@ import { useAdjustData } from '../hooks/use-adjust-data';
 Chart.register([Legend, CategoryScale, LinearScale, BarElement, zoomPlugin]);
 
 const SectionRegionBarChart = ({ data = [] }) => {
-  const { setAreaField, areaFields } = useFilterStore();
+  const { setField } = useFilterStore();
 
   const colorScheme = useComputedColorScheme();
   const color = colorScheme === 'dark' ? '#ffffff' : '#000000';
   const { backgroundColors, datasets, labels } = useAdjustData(data);
   const chartRef = useRef();
 
-  // const handeClick = (event) => {
-  //   if (getElementAtEvent(chartRef.current, event).length > 0) {
-  //     const dataPoint = getElementAtEvent(chartRef.current, event)[0].index;
-  //     if (!areaFields.region_id && data[dataPoint].id !== 9999) {
-  //       setAreaField('region_id', data[dataPoint].id);
-  //     }
-  //   }
-  // };
+  const handeClick = (event) => {
+    if (getElementAtEvent(chartRef.current, event).length > 0) {
+      const dataPoint = getElementAtEvent(chartRef.current, event)[0].index;
+      setField('authority_id', data[dataPoint].id);
+    }
+  };
 
   return (
     <Bar
       height={90}
+      onClick={handeClick}
       data={{
         labels: labels,
         datasets: [
@@ -79,7 +78,6 @@ const SectionRegionBarChart = ({ data = [] }) => {
           // },
         },
       }}
-      // onClick={handeClick}
     />
   );
 };

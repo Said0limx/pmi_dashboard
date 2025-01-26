@@ -1,7 +1,6 @@
 'use client';
 import { useMounted } from '@mantine/hooks';
 
-import { AppealsCountByEmployment } from '@/entities/dashboard/components/appeals-count-by-employment/appeals-count-by-employment';
 import { Classifications } from '@/entities/dashboard/components/classifications';
 import { DashboardMap } from '@/entities/dashboard/components/dashboard-map/dashboard-map';
 import { DashboardRegionsBar } from '@/entities/dashboard/components/dashboard-regions-bar/dashboard-regions-bar';
@@ -11,7 +10,7 @@ import { NumberOfAppealsInSourceSection } from '@/entities/dashboard/components/
 import { useValidateParams } from '@/shared/hooks/use-validate-params';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
-import AuthorityBarChartContainer from './components/authority-bar-chart-container';
+import CountryBarChartContainer from './components/country-bar-chart-container';
 import DashboardLineChart from './components/dashboard-line-chart/dashboard-line-chart';
 
 const DashboardBody = () => {
@@ -46,7 +45,7 @@ const DashboardBody = () => {
         <NumberOfAppealsInSourceSection />
         <DashboardLineChart />
       </div>
-      <AuthorityBarChartContainer />
+      <CountryBarChartContainer />
     </>
   );
 };

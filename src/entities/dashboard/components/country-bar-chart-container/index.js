@@ -5,9 +5,9 @@ import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
 import { formatNumber } from '@/shared/utils';
 
 import { useAbroadCountryList } from '../../hooks';
-import AuthorityBarChart from './authority-bar-chart';
+import CountryBarChart from './country-bar-chart';
 
-function AuthorityBarChartContainer() {
+function CountryBarChartContainer() {
   const { data, isLoading, isFetching, isError, error } = useAbroadCountryList();
   const t = useTranslations();
 
@@ -48,7 +48,7 @@ function AuthorityBarChartContainer() {
               {t('Mamlakatlar bo‘yicha loyihalar soni')}:{' '}
               <span className='text-xl'>{formatNumber(data?.headers?.total_amount)}</span>
             </Title>
-            <AuthorityBarChart data={data?.data} />
+            <CountryBarChart data={data?.data} />
           </motion.div>
         )}
       </ContentBox>
@@ -56,4 +56,4 @@ function AuthorityBarChartContainer() {
   );
 }
 
-export default AuthorityBarChartContainer;
+export default CountryBarChartContainer;
