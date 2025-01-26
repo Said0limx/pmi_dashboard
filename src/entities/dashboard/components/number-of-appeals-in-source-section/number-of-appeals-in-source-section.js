@@ -1,8 +1,10 @@
 'use client';
+import { IconArrowLeft } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 import { useTasksBySource } from '@/entities/dashboard/hooks';
+import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
 import Sources from './ui/sources';
@@ -10,6 +12,17 @@ import Sources from './ui/sources';
 export const NumberOfAppealsInSourceSection = () => {
   const { data, isLoading, isFetching, isError, error } = useTasksBySource();
   const t = useTranslations();
+
+  const { setField, sphere_id, industry_id } = useFilterStore();
+
+  const handleBack = () => {
+    if (industry_id) {
+      setField('industry_id', null);
+    } else if (sphere_id) {
+      setField('sphere_id', null);
+    }
+  };
+
   if (isError) {
     return (
       <ContentBox>
@@ -32,8 +45,23 @@ export const NumberOfAppealsInSourceSection = () => {
         )}
         {!isLoading && (
           <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
-            <Title className='sticky top-0 p-5'>{t('Sohalar bo‘yicha prognozlar')}</Title>
-            <Sources data={data} />
+            <div className='flex justify-between items-center pr-8'>
+              <Title className='sticky top-0 p-5'>
+                {data?.headers?.breadcrumbs?.title ?? t('Sohalar bo‘yicha prognozlar')}
+              </Title>
+              {sphere_id && (
+                <div
+                  onClick={handleBack}
+                  className={
+                    'flex items-center gap-2 border px-2 rounded-lg cursor-pointer h-[40px]'
+                  }
+                >
+                  <IconArrowLeft />
+                  {t('Orqaga')}
+                </div>
+              )}
+            </div>
+            <Sources data={data?.data} />
           </motion.div>
         )}
 

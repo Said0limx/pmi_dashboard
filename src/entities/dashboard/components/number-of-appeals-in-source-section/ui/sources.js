@@ -11,6 +11,7 @@ const Sources = ({ data }) => {
       {data?.map((source) => (
         <SourceItem
           key={source.id}
+          id={source.id}
           iconUrl={source.icon_file}
           title={source.title}
           amount={periodFields.period_type_id === YEARLY ? source.year_amount : source.plan_amount}
