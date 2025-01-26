@@ -50,7 +50,7 @@ export const DegreeOfSolvingAppeals = () => {
             <Title size='lg'>{t('Moliyalashtirish manbalari bo‘yicha jami')} </Title>
             <div className='flex items-center gap-3 mt-4'>
               <DonutChart
-                totalAmount={data.headers.total_fact_amount}
+                totalAmount={data.headers.total_fact_amount / 1000}
                 data={data?.data.map((item) => ({
                   ...item,
                   amount: item.fact_amount,

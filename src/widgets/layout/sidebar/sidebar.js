@@ -2,10 +2,8 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import { SidebarBottomIcon } from '@/assets/icons';
-import Logo from '@/assets/images/logo.svg';
+import Logo from '@/assets/images/logo-new.svg';
 import { Link } from '@/i18n/routing';
-import { useAuthStore } from '@/shared/store/use-auth-store';
 
 import { sidebarList } from './lib/sidebar-data';
 import { checkPathMatch } from './model/checkPathname';
@@ -13,20 +11,19 @@ import { DropDownMenu, NavLink } from './ui';
 
 export const Sidebar = () => {
   const pathname = usePathname();
-  const { userDetails } = useAuthStore();
   return (
     <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_4 text-white float-left sticky top-0'>
       <div className='w-full'>
-        <div className='px-[27px] py-5'>
+        <div className='px-[27px] pt-4 pb-1 flex'>
           <Link href={`/`} className='text-center' aria-label='Main logo'>
-            <Image src={Logo} style={{ width: '100%', height: 80 }} alt='' priority />
+            <Image src={Logo} style={{ width: '100%', height: 50 }} alt='' priority />
           </Link>
         </div>
       </div>
       <div className='w-full h-[1px]  bg-main_lavenderMistAlt dark:bg-main_Blue8' />
       <ul className='w-full inline-flex flex-col items-start gap-[8px] list-none mt-[20px] sidebar-menu '>
         {sidebarList()
-          .filter((item) => item.role.includes(userDetails?.role))
+          // .filter((item) => item.role.includes(userDetails?.role))
           .map((item) => {
             if (item?.type === 'page') {
               return (
@@ -56,9 +53,9 @@ export const Sidebar = () => {
             }
           })}
       </ul>
-      <div className='absolute bottom-0 left-0 -z-10'>
+      {/* <div className='absolute bottom-0 left-0 -z-10'>
         <SidebarBottomIcon />
-      </div>
+      </div> */}
     </div>
   );
 };
