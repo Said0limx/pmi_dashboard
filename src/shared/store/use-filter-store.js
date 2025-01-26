@@ -10,6 +10,10 @@ export const useFilterStore = create(
       periodFields: {},
       source_id: null,
       order_id: null,
+      abroad_country_id: null,
+      sphere_id: null,
+      industry_id: null,
+      authority_id: null,
       authority_ids: [],
       reportViewFields: {
         report_view_id: 1,
@@ -53,6 +57,17 @@ export const useFilterStore = create(
         set((state) => {
           return { ...state, authority_ids: [...state.authority_ids, fieldValue] };
         }),
+      resetToInitialValues: () =>
+        set((state) => ({
+          ...state,
+          source_id: null,
+          order_id: null,
+          abroad_country_id: null,
+          sphere_id: null,
+          industry_id: null,
+          authority_id: null,
+          // complex_ids: [],
+        })),
       removeAuthorityField: () =>
         set((state) => {
           const authority_ids = state.authority_ids.filter(

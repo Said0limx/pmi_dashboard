@@ -6,12 +6,11 @@ import { useTasksResultType } from '@/entities/dashboard/hooks';
 import ChartLabels from '@/entities/dashboard/ui/chart-labels';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, DonutChart, Loader, LoadingOverlay, Title } from '@/shared/ui';
-import { YEARLY } from '@/shared/variables/period-type-types';
 
 export const DegreeOfSolvingAppeals = () => {
   const { data, isLoading, isFetching, isError, error } = useTasksResultType();
   const t = useTranslations();
-  const { periodFields } = useFilterStore();
+  const { setField } = useFilterStore();
 
   if (isError) {
     return (
@@ -22,6 +21,10 @@ export const DegreeOfSolvingAppeals = () => {
       </ContentBox>
     );
   }
+
+  const handleClick = (item) => {
+    setField('source_id', item.id);
+  };
   return (
     <LoadingOverlay
       className={'rounded-[1.25rem] overflow-hidden h-full'}
@@ -66,6 +69,7 @@ export const DegreeOfSolvingAppeals = () => {
                 withNumber={false}
                 withPercent={false}
                 chartLabelItemClass={'py-2'}
+                onClick={handleClick}
               />
             </div>
           </motion.div>

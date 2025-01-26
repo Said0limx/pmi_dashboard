@@ -13,7 +13,7 @@ const PeriodTypeSelect = ({ filterOptions = (data) => data }) => {
 
   useEffect(() => {
     if (!periodFields.period_type_id) {
-      setPeriodField('period_type_id', 4);
+      setPeriodField('period_type_id', 2);
     }
   }, []);
   const t = useTranslations();

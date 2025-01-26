@@ -1,17 +1,16 @@
 import { Progress, Tooltip } from '@mantine/core';
 import { useTranslations } from 'next-intl';
-import { Fragment } from 'react';
 
 import { classNames } from '@/shared/utils';
 
 import { ChartLabelItem } from './chart-label-item';
 
-const ChartLabels = ({ data = [], withPercent, withNumber, chartLabelItemClass }) => {
+const ChartLabels = ({ data = [], withPercent, withNumber, chartLabelItemClass, onClick }) => {
   const t = useTranslations();
   return (
     <div className='bg-white dark:bg-[#32419B] px-4 rounded-2xl max-h-[260px] overflow-y-auto flex-1 h-max relative shadow-[0px_10px_10px_0px_#7090B01F]'>
       {data.map((item, index) => (
-        <Fragment key={index}>
+        <div key={index} onClick={() => onClick(item)} className='cursor-pointer'>
           <ChartLabelItem
             badgeColor={item.color}
             number={item.amount}
@@ -36,7 +35,7 @@ const ChartLabels = ({ data = [], withPercent, withNumber, chartLabelItemClass }
               <span className='text-sm'>{item.fact_percentage}</span>
             </div>
           </Tooltip>
-        </Fragment>
+        </div>
       ))}
     </div>
   );

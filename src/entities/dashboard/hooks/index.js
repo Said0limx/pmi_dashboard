@@ -5,16 +5,31 @@ import { useFetch } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
 const useMakeBody = () => {
-  const { periodFields, areaFields, order_id } = useFilterStore();
+  const {
+    periodFields,
+    areaFields,
+    source_id,
+    order_id,
+    abroad_country_id,
+    sphere_id,
+    industry_id,
+    authority_id,
+  } = useFilterStore();
 
   return {
     body: {
+      source_id,
+      order_id,
+      abroad_country_id,
+      sphere_id,
+      industry_id,
+      authority_id,
+
       period_id: periodFields.period_id || null,
       region_id: areaFields.region_id || null,
       period_type_id: periodFields.period_type_id || null,
       period_year_id: periodFields.period_year_id || null,
       period_month_id: periodFields.period_month_id || null,
-      order_id,
     },
   };
 };
