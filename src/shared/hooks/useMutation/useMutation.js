@@ -1,3 +1,5 @@
+'use client';
+
 import { useMutation as tanstackUseMutation } from '@tanstack/react-query';
 
 import { api } from '@/shared';
