@@ -65,7 +65,7 @@ export const DegreeOfSolvingAppeals = () => {
                 data={data?.data}
                 withNumber={false}
                 withPercent={false}
-                chartLabelItemClass={'py-4'}
+                chartLabelItemClass={'py-2'}
               />
             </div>
           </motion.div>

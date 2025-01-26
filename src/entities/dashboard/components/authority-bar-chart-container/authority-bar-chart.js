@@ -17,8 +17,6 @@ import { colors } from '@/shared/variables/colors';
 function AuthorityBarChart({ data }) {
   const stroke = useStrokeColor();
 
-  console.log(data);
-
   const t = useTranslations();
 
   const titlesObject = {
