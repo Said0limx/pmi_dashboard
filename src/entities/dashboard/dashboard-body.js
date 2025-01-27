@@ -1,34 +1,23 @@
 'use client';
 import { useMounted } from '@mantine/hooks';
 
-import { Classifications } from '@/entities/dashboard/components/classifications';
 import { DashboardMap } from '@/entities/dashboard/components/dashboard-map/dashboard-map';
 import { DashboardRegionsBar } from '@/entities/dashboard/components/dashboard-regions-bar/dashboard-regions-bar';
 import DashboardSkeleton from '@/entities/dashboard/components/dashboard-skeleton/dashboard-skeleton';
 import { DegreeOfSolvingAppeals } from '@/entities/dashboard/components/degree-of-solving-appeals/degree-of-solving-appeals';
 import { NumberOfAppealsInSourceSection } from '@/entities/dashboard/components/number-of-appeals-in-source-section';
 import { useValidateParams } from '@/shared/hooks/use-validate-params';
-import { useFilterStore } from '@/shared/store/use-filter-store';
 
 import CountryBarChartContainer from './components/country-bar-chart-container';
 import DashboardLineChart from './components/dashboard-line-chart/dashboard-line-chart';
 
 const DashboardBody = () => {
-  const {
-    classificationFields: { is_dashboard_classification },
-  } = useFilterStore();
   const loadParams = useValidateParams();
   const mounted = useMounted();
   if (!loadParams || !mounted) {
     return <DashboardSkeleton />;
   }
-  if (is_dashboard_classification) {
-    return (
-      <div className={'grid grid-cols-2 gap-5'}>
-        <DashboardMap /> <Classifications />
-      </div>
-    );
-  }
+
   return (
     <>
       <div className='grid grid-cols-2 gap-5 '>

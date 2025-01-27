@@ -48,7 +48,7 @@ const SectionRegionBarChart = ({ data = [] }) => {
         scales: {
           x: {
             ticks: {
-              font: { size: 12 },
+              font: { size: 13 },
               color: color,
               callback: function (value) {
                 const label = this.getLabelForValue(value);
