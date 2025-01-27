@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import Logo from '@/assets/images/logo-new.svg';
+import Logo from '@/assets/images/logo.svg';
 import { Link } from '@/i18n/routing';
 
 import { sidebarList } from './lib/sidebar-data';
@@ -14,11 +14,10 @@ export const Sidebar = () => {
   return (
     <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_4 text-white float-left sticky top-0'>
       <div className='w-full'>
-        <div className='px-[27px] py-4 flex items-center gap-2'>
+        <div className='px-[27px] py-4 flex items-center '>
           <Link href={`/`} className='text-center' aria-label='Main logo'>
             <Image src={Logo} style={{ width: '100%', height: 60 }} alt='' priority />
           </Link>
-          <span className='text-2xl font-bold'>Investment</span>
         </div>
       </div>
       <div className='w-full h-[1px]  bg-main_lavenderMistAlt dark:bg-main_Blue8' />
