@@ -1,20 +1,20 @@
 services:
-  sp_front:
-    container_name: sp_front
+  pmi_front:
+    container_name: pmi_front
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - '${NGINX_PUBLIC_PORT:-127.0.0.1:7070}:3000'
+      - "127.0.0.1:3123:3000"
     restart: unless-stopped
     logging:
-      driver: 'json-file'
+      driver: "json-file"
       options:
-        max-size: '5M'
+        max-size: "5M"
         max-file: 10
     networks:
-      - sp_network
+      - pmi_network
 
 networks:
-  sp_network:
+  pmi_network:
     external: true

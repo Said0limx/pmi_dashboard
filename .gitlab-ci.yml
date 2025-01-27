@@ -4,11 +4,11 @@ stages:
 deploy-to-dev-server:
   stage: deploy_dev
   rules:
-    - if: $CI_COMMIT_BRANCH == 'master'
+    - if: $CI_COMMIT_BRANCH == 'main'
   script:
-    - rsync -av --no-perms --no-owner --no-group --filter=':- .gitignore' --delete-after $CI_PROJECT_DIR/ /var/www/git/monitoringpm.track.uz
+    - rsync -av --no-perms --no-owner --no-group --filter=':- .gitignore' --delete-after $CI_PROJECT_DIR/ /var/www/git/pmi_dashboard_front
     - echo "Application successfully deployed on dev server"
-    - docker compose -f /var/www/git/monitoringpm.track.uz/docker-compose.yml up -d --build
+    - docker compose -f /var/www/git/pmi_dashboard_front/docker-compose.yml up -d --build
     - echo "Application run..."
   tags:
-    - monitoring_pm
+    - monitoring_pmi
