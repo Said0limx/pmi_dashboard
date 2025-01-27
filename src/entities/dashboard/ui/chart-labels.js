@@ -1,12 +1,13 @@
 import { Progress, Tooltip } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
+import { useFormatSum } from '@/shared/hooks';
 import { classNames } from '@/shared/utils';
 
 import { ChartLabelItem } from './chart-label-item';
 
 const ChartLabels = ({ data = [], withPercent, withNumber, chartLabelItemClass, onClick }) => {
-  const t = useTranslations();
+  const { formatSum } = useFormatSum();
   return (
     <div className='bg-white dark:bg-[#32419B] px-4 rounded-2xl max-h-[260px] overflow-y-auto flex-1 h-max relative shadow-[0px_10px_10px_0px_#7090B01F]'>
       {data.map((item, index) => (
@@ -20,7 +21,7 @@ const ChartLabels = ({ data = [], withPercent, withNumber, chartLabelItemClass, 
             withPercent={withPercent}
             chartLabelItemClass={chartLabelItemClass}
           />
-          <Tooltip label={`$${(item.fact_amount / 1000).toFixed(2)}${t('mlrd')}`}>
+          <Tooltip label={formatSum(item, '', '', 'fact_amount', true)}>
             <div
               className={classNames(
                 'flex items-center gap-3 ml-3',

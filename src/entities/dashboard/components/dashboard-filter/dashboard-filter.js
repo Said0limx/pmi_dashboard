@@ -47,7 +47,7 @@ export const DashboardFilter = () => {
             className='mt-6 bg-main_dark_blue w-[150px]'
             onClick={resetToInitialValues}
           >
-            {t('Tozalash')} <IconBackspace className='ml-2' />
+            {t('Tozalash')}
           </Button>
         )}
       </div>

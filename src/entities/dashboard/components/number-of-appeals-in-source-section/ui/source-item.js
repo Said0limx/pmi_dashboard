@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl';
 import CountUp from 'react-countup';
 
 import { useFilterStore } from '@/shared/store/use-filter-store';
@@ -5,7 +6,7 @@ import { makeImageUrl } from '@/shared/utils/make-image-url';
 
 const SourceItem = ({ title, amount, iconUrl, id }) => {
   const { setField, sphere_id } = useFilterStore();
-
+  const t = useTranslations();
   const handleClick = () => {
     if (sphere_id) {
       setField('industry_id', id);
@@ -13,6 +14,9 @@ const SourceItem = ({ title, amount, iconUrl, id }) => {
       setField('sphere_id', id);
     }
   };
+
+  const end = amount > 1000 ? (amount / 1000)?.toFixed(2) : Number(amount).toFixed(2);
+
   return (
     <div
       onClick={handleClick}
@@ -28,7 +32,13 @@ const SourceItem = ({ title, amount, iconUrl, id }) => {
           }}
         />
         <p className='text-color text-[26px] font-bold leading-8 -tracking-[0.52px]'>
-          <CountUp end={amount} duration={2} decimals={4} prefix='$' />
+          <CountUp
+            end={end}
+            duration={2}
+            decimals={2}
+            prefix='$'
+            suffix={amount > 1000 ? ` ${t('mlrd')}` : ` ${t('mln')}`}
+          />
         </p>
         {/* <PercentBadge className='absolute -top-3 right-0' percent={percent} /> */}
       </div>

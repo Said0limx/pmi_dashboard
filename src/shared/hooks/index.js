@@ -8,6 +8,7 @@ export * from './use-stroke-color';
 export * from './useChartLegend/useChartLegend';
 export * from './useClassificationKey/useClassificationKey';
 export * from './useFetch/useFetch';
+export * from './useFormatSum';
 export * from './useIdentifyAreaKey/useIdentifyAreaKey';
 export * from './useInfiniteScroll/useInfinitiScroll';
 export * from './useModal/useModal';

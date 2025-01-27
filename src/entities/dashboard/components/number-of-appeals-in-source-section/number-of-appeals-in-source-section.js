@@ -47,7 +47,9 @@ export const NumberOfAppealsInSourceSection = () => {
           <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }}>
             <div className='flex justify-between items-center pr-8'>
               <Title className='sticky top-0 p-5'>
-                {data?.headers?.breadcrumbs?.title ?? t('Sohalar bo‘yicha prognozlar')}
+                {data?.headers?.breadcrumbs?.length > 0
+                  ? data?.headers?.breadcrumbs?.map((item) => item.title).join('  /  ')
+                  : t('Sohalar bo‘yicha prognozlar')}
               </Title>
               {sphere_id && (
                 <div

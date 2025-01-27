@@ -1,11 +1,12 @@
 import { Tooltip } from '@mantine/core';
 
+import { useFormatSum } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { colors } from '@/shared/variables/colors';
-import { YEARLY } from '@/shared/variables/period-type-types';
 
 const UzbekistanMap = ({ data }) => {
-  const { areaFields, setAreaField, periodFields } = useFilterStore();
+  const { areaFields, setAreaField } = useFilterStore();
+  const { formatSum } = useFormatSum();
 
   const regions = {
     1726: '0 0 303 325',
@@ -34,11 +35,7 @@ const UzbekistanMap = ({ data }) => {
     >
       {data?.map((region) => {
         return (
-          <Tooltip
-            color='#1a759f'
-            label={`${region.title}: ${periodFields.period_type_id === YEARLY ? region.year_amount : region.plan_amount}`}
-            key={region.id}
-          >
+          <Tooltip color='#1a759f' label={`${region.title}: ${formatSum(region)}`} key={region.id}>
             <path
               onClick={() => {
                 if (!areaFields.region_id) {

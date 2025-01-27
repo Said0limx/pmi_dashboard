@@ -53,14 +53,14 @@ export const DegreeOfSolvingAppeals = () => {
             <Title size='lg'>{t('Moliyalashtirish manbalari bo‘yicha jami')} </Title>
             <div className='flex items-center gap-3 mt-4'>
               <DonutChart
-                totalAmount={data.headers.total_fact_amount / 1000}
+                totalAmount={data.headers.total_fact_amount}
                 data={data?.data.map((item) => ({
                   ...item,
                   amount: item.fact_amount,
                   percentage: item.fact_percentage,
                 }))}
                 countUpProps={{
-                  decimals: 4,
+                  decimals: 2,
                   prefix: '$',
                 }}
               />

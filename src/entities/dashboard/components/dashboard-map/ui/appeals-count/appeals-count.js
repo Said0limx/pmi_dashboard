@@ -1,14 +1,13 @@
 import { useTranslations } from 'next-intl';
 
 import { useTasksAmount } from '@/entities/dashboard/hooks';
-import { useFilterStore } from '@/shared/store/use-filter-store';
+import { useFormatSum } from '@/shared/hooks';
 import { formatNumber } from '@/shared/utils';
-import { YEARLY } from '@/shared/variables/period-type-types';
 
 export const NumberOfAppeals = () => {
   const { data, isFetching } = useTasksAmount();
   const t = useTranslations();
-  const { periodFields } = useFilterStore();
+  const { formatSum } = useFormatSum();
 
   if (isFetching) {
     return null;
@@ -32,10 +31,7 @@ export const NumberOfAppeals = () => {
       >
         <div className={'text-color text-xl font-semibold'}>{t('Prognoz')}</div>
         <div className={'text-4xl text-color font-bold text-center '}>
-          $
-          {(periodFields.period_type_id === YEARLY
-            ? data?.headers?.total_year_amount
-            : data?.headers?.total_plan_amount) || ''}
+          {formatSum(data?.headers, 'total_year_amount', 'total_plan_amount')}
         </div>
       </div>
       <div className={'flex flex-col gap-2 flex-1'}>
