@@ -123,7 +123,12 @@ export default function Login() {
       </div>
       <div className='hidden   col-span-1 lg:flex justify-center items-center relative m-[1.875rem]'>
         {/* <div className={`w-full h-full bg-[url('/assets/images/login-banner.svg')] bg-no-repeat`} /> */}
-        <Image src='/assets/images/login-banner.svg' alt='Lock icon' fill />
+        <Image
+          className='rounded-3xl'
+          src='/assets/images/new-login-banner.png'
+          alt='Lock icon'
+          fill
+        />
       </div>
     </div>
   );
