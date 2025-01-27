@@ -1,18 +1,17 @@
 'use client';
 import { IntlErrorCode, NextIntlClientProvider } from 'next-intl';
-
-import { useFetch } from '@/shared/hooks';
+import { useEffect, useState } from 'react';
 
 const IntlProvider = ({ children, locale }) => {
-  const { data = {} } = useFetch({
-    url: `/admin/translate/fetch-all?lang=${locale}`,
-    key: 'translations',
-    dataKey: null,
-  });
+  const [messages, setMessages] = useState({});
+
+  useEffect(() => {
+    import(`@/i18n/messages/${locale}.json`).then((res) => setMessages(res));
+  }, [locale]);
 
   return (
     <NextIntlClientProvider
-      messages={data}
+      messages={messages}
       locale={locale}
       onError={(error) => {
         if (error.code === IntlErrorCode.MISSING_MESSAGE) {

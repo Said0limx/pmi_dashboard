@@ -1,9 +1,11 @@
 import { colors } from '@/shared/variables/colors';
 
-export const CustomTooltipRecharts = ({ label, payload, titlesObject }) => {
+export const CustomTooltipRecharts = ({ label, payload, titlesObject, isLabelInPayload }) => {
   return (
     <div className='bg-white dark:bg-main_dark_blue p-2 rounded-lg max-w-[500px]'>
-      <div className='text-color text-lg leading-6'>{label}</div>
+      <div className='text-color text-lg leading-6'>
+        {isLabelInPayload ? payload[0]?.payload?.title : label}
+      </div>
       <div>
         {payload.map((item, index) => (
           <div key={index} className='flex justify-between gap-3 items-center'>

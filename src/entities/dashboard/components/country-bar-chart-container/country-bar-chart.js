@@ -50,7 +50,7 @@ function CountryBarChart({ data }) {
         <CartesianGrid strokeDasharray='3 3' stroke={stroke} />
         <XAxis dataKey='code_name' stroke={stroke} />
         <YAxis stroke={stroke} />
-        <Tooltip content={<CustomTooltipRecharts titlesObject={titlesObject} />} />
+        <Tooltip content={<CustomTooltipRecharts titlesObject={titlesObject} isLabelInPayload />} />
         <Legend content={<CustomLegendRecharts titlesObject={titlesObject} />} />
         <Bar dataKey='self_project_amount' stackId='a' fill={colors[4]} onClick={handleClick} />
         <Bar
