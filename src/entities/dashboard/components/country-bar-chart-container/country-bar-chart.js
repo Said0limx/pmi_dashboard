@@ -37,7 +37,7 @@ function CountryBarChart({ data }) {
   };
 
   return (
-    <ResponsiveContainer height={300}>
+    <ResponsiveContainer height={350}>
       <BarChart
         data={data?.slice(0, 20)}
         margin={{

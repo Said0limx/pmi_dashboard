@@ -38,10 +38,16 @@ const LineView = ({ data, headers, isLoading }) => {
   };
 
   return (
-    <ResponsiveContainer height={300}>
-      <LineChart data={mappedData}>
+    <ResponsiveContainer height={300} className='overflow-visible'>
+      <LineChart data={mappedData} className='overflow-visible'>
         <CartesianGrid strokeDasharray='3 3' stroke={stroke} />
-        <XAxis dataKey='period' stroke={stroke} />
+        <XAxis
+          dataKey='period'
+          stroke={stroke}
+          angle={-40}
+          textAnchor='end'
+          className='overflow-visible'
+        />
         <YAxis stroke={stroke} />
         <Tooltip content={<CustomTooltipRecharts titlesObject={titlesObject} />} />
         <Legend

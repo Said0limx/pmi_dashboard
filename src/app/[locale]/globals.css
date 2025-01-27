@@ -163,3 +163,7 @@ html[data-mantine-color-scheme='dark'] .skeleton:after {
 .mantine-Table-tbody .mantine-Table-tr {
   @apply dark:hover:bg-[#2B3674] hover:bg-slate-200;
 }
+
+.recharts-surface {
+  overflow: visible !important;
+}

@@ -26,7 +26,7 @@ function CountryBarChartContainer() {
       className={'rounded-[1.25rem] overflow-hidden h-full  order-2 screen-1800:order-3'}
       isLoading={!isLoading && isFetching}
     >
-      <ContentBox className='p-5 h-full min-h-[350px]'>
+      <ContentBox className='p-5 mt-3 h-full min-h-[350px]'>
         {isLoading && (
           <div className='h-full flex justify-center items-center'>
             <Loader />
