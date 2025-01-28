@@ -65,13 +65,13 @@ export const sidebarList = () => {
       path: '/settings',
       role: ['super_admin'],
       children: [
-        // {
-        //   id: 'strategy',
-        //   title: 'Strategy',
-        //   icon: IconBinaryTree,
-        //   type: 'page',
-        //   path: '/settings/strategy',
-        // },
+        {
+          id: 'country-list',
+          title: 'Countries',
+          icon: IconBinaryTree,
+          type: 'page',
+          path: '/settings/country-list',
+        },
         // {
         //   id: 'executor',
         //   title: 'Executor',

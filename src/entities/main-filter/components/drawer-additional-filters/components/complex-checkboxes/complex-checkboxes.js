@@ -21,7 +21,7 @@ export const ComplexCheckboxes = () => {
 
   return (
     <div>
-      <Title>{t('Complex list')}:</Title>
+      <Title>{t('Complex')}:</Title>
       <div className='flex flex-col flex-wrap gap-3 mt-3'>
         {sources.map((item) => {
           const value = checkboxFields['complex_ids']?.includes(item.id);

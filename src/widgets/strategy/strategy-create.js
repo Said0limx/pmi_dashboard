@@ -18,7 +18,7 @@ const StrategyCreate = ({ initialValues, opened, close }) => {
         onClose={close}
         centered
         classNames={{ title: '!font-semibold' }}
-        title={initialValues ? t('Update strategy') : t('Create strategy')}
+        title={initialValues ? t('Update country') : t('Create country')}
         size={'xl'}
       >
         <Form initialValues={initialValues} close={close} />
@@ -37,6 +37,9 @@ const Form = ({ initialValues, close }) => {
       title_oz: '',
       title_uz: '',
       title_ru: '',
+      short_title_oz: '',
+      short_title_uz: '',
+      short_title_ru: '',
       sort: '',
       enabled: '1',
       icon_file: '',
@@ -45,6 +48,9 @@ const Form = ({ initialValues, close }) => {
       title_oz: (value) => (value ? null : t('Title oz is required')),
       title_uz: (value) => (value ? null : t('Title uz is required')),
       title_ru: (value) => (value ? null : t('Title ru is required')),
+      short_title_oz: (value) => (value ? null : t('Short Title oz is required')),
+      short_title_uz: (value) => (value ? null : t('Short Title uz is required')),
+      short_title_ru: (value) => (value ? null : t('Short Title ru is required')),
       sort: (value) => (value ? null : t('Sort is required')),
     },
   });
@@ -53,7 +59,7 @@ const Form = ({ initialValues, close }) => {
 
   const onSuccess = () => {
     close();
-    queryClient.invalidateQueries({ queryKey: ['admin/strategy/list'] });
+    queryClient.invalidateQueries({ queryKey: ['country/list'] });
     toast.success(t('Strategy created'));
   };
 
@@ -68,19 +74,23 @@ const Form = ({ initialValues, close }) => {
     formData.append('title_oz', values.title_oz);
     formData.append('title_uz', values.title_uz);
     formData.append('title_ru', values.title_ru);
+    formData.append('short_title_oz', values.short_title_oz);
+    formData.append('short_title_uz', values.short_title_uz);
+    formData.append('short_title_ru', values.short_title_ru);
     formData.append('sort', values.sort);
     formData.append('enabled', values.enabled);
+
     if (typeof values.icon_file === 'object') formData.append('icon_file', values.icon_file);
+
     mutate(
       {
-        url: initialValues
-          ? `/admin/strategy/${initialValues.id}/update`
-          : '/admin/strategy/create',
+        url: initialValues ? `/country/edit/${initialValues.id}` : '/admin/strategy/create',
         data: formData,
       },
       { onSuccess, onError },
     );
   };
+
   return (
     <form onSubmit={onSubmit(createStrategy)}>
       <div className='flex flex-col gap-3 mb-5'>
@@ -104,6 +114,27 @@ const Form = ({ initialValues, close }) => {
           key={key('title_ru')}
           className='!text-main_deep_blue'
           {...getInputProps('title_ru')}
+        />
+        <TextInput
+          label={t('Short Title OZ')}
+          labelProps={{ className: 'dark:text-white text-[#171725]' }}
+          key={key('short_title_oz')}
+          className='!text-main_deep_blue'
+          {...getInputProps('short_title_oz')}
+        />
+        <TextInput
+          label={t('Short Title UZ')}
+          labelProps={{ className: 'dark:text-white text-[#171725]' }}
+          key={key('short_title_uz')}
+          className='!text-main_deep_blue'
+          {...getInputProps('short_title_uz')}
+        />
+        <TextInput
+          label={t('Short Title RU')}
+          labelProps={{ className: 'dark:text-white text-[#171725]' }}
+          key={key('short_title_ru')}
+          className='!text-main_deep_blue'
+          {...getInputProps('short_title_ru')}
         />
 
         <div className='grid grid-cols-5 gap-3 '>
