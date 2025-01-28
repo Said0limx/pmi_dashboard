@@ -14,6 +14,7 @@ const useMakeBody = () => {
     sphere_id,
     industry_id,
     authority_id,
+    checkboxFields,
   } = useFilterStore();
 
   return {
@@ -30,6 +31,8 @@ const useMakeBody = () => {
       period_type_id: periodFields.period_type_id || null,
       period_year_id: periodFields.period_year_id || null,
       period_month_id: periodFields.period_month_id || null,
+
+      ...checkboxFields,
     },
   };
 };

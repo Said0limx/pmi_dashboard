@@ -5,14 +5,14 @@ import { createPortal } from 'react-dom';
 
 import { Title } from '@/shared/ui';
 
-import { CitizenColorCheckboxes } from './components/citizen-color-checkboxes/citizen-color-checkboxes';
-import { CollectiveCheckboxes } from './components/collective-checkboxes/collective-checkboxes';
-import { EmploymentCheckboxes } from './components/employment-checkboxes/employment-checkboxes';
-import { GenderCheckboxes } from './components/gender-checkboxes/gender-checkboxes';
-import { ProceduralCheckboxes } from './components/procedural-checkboxes/procedural-checkboxes';
-import { RecipientCheckboxes } from './components/recipient-checkboxes/recipient-checkboxes';
-import { RepeatabilityCheckboxes } from './components/repeatability-checkboxes/repeatability-checkboxes';
-import { SourcesCheckboxes } from './components/sources-checkboxes/sources-checkboxes';
+// import { CitizenColorCheckboxes } from './components/citizen-color-checkboxes/citizen-color-checkboxes';
+// import { CollectiveCheckboxes } from './components/collective-checkboxes/collective-checkboxes';
+import { ComplexCheckboxes } from './components/complex-checkboxes/complex-checkboxes';
+// import { EmploymentCheckboxes } from './components/employment-checkboxes/employment-checkboxes';
+// import { GenderCheckboxes } from './components/gender-checkboxes/gender-checkboxes';
+// import { ProceduralCheckboxes } from './components/procedural-checkboxes/procedural-checkboxes';
+// import { RecipientCheckboxes } from './components/recipient-checkboxes/recipient-checkboxes';
+// import { RepeatabilityCheckboxes } from './components/repeatability-checkboxes/repeatability-checkboxes';
 import { ToggleButtonDrawer } from './components/toggle-button-drawer';
 
 export const DrawerAdditionalFilters = () => {
@@ -35,9 +35,9 @@ export const DrawerAdditionalFilters = () => {
                 <Title size='2xl'>{t('Filterlar sozlamasi')}</Title>{' '}
                 <CloseButton onClick={toggleDrawer} />
               </div>
-              <div className='grid grid-cols-2 mt-5'>
-                <SourcesCheckboxes />
-                <div className='flex flex-col gap-5'>
+              <div className='grid mt-5'>
+                <ComplexCheckboxes />
+                {/* <div className='flex flex-col gap-5'>
                   <RepeatabilityCheckboxes />
                   <ProceduralCheckboxes />
                   <GenderCheckboxes />
@@ -45,7 +45,7 @@ export const DrawerAdditionalFilters = () => {
                   <RecipientCheckboxes />
                   <CollectiveCheckboxes />
                   <CitizenColorCheckboxes />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>,
