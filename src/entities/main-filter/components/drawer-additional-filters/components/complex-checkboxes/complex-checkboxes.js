@@ -15,16 +15,16 @@ export const ComplexCheckboxes = () => {
 
   useSetDefaultValues({
     data: sources.sort((a, b) => b.is_default - a.is_default),
-    fieldKey: 'compelex_ids',
+    fieldKey: 'complex_ids',
   });
-  const onChange = useCheckboxOnchange('compelex_ids');
+  const onChange = useCheckboxOnchange('complex_ids');
 
   return (
     <div>
       <Title>{t('Complex list')}:</Title>
       <div className='flex flex-col flex-wrap gap-3 mt-3'>
         {sources.map((item) => {
-          const value = checkboxFields['compelex_ids']?.includes(item.id);
+          const value = checkboxFields['complex_ids']?.includes(item.id);
           return (
             <Checkbox
               key={item.id}
