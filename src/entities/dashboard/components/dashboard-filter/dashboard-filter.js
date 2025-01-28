@@ -44,7 +44,7 @@ export const DashboardFilter = () => {
         {isClearButtonVisible && (
           <Button
             size='sm'
-            className='mt-6 bg-main_dark_blue w-[150px]'
+            className='mt-6 bg-main_dark_blue w-[180px]'
             onClick={resetToInitialValues}
           >
             {t('Tozalash')}
