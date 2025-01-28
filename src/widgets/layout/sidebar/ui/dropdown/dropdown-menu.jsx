@@ -1,11 +1,14 @@
 'use client';
 import { useToggle } from '@mantine/hooks';
+import { useTranslations } from 'next-intl';
 
 import { checkPartOfPathname } from '../../model/checkPartOfPathname';
 import { DropdownButton } from './ui/dropdown-button';
 import { DropdownNavLinks } from './ui/dropdown-nav-links';
+
 export const DropDownMenu = ({ data: itemData, pathname }) => {
   const [active, toggle] = useToggle();
+  const t = useTranslations();
   return (
     <ul className={`w-full flex flex-col items-start gap-2`}>
       <DropdownButton
@@ -18,7 +21,7 @@ export const DropDownMenu = ({ data: itemData, pathname }) => {
             className={`group-hover/:text-main_deep_blue dark:group-hover/:text-white ${checkPartOfPathname(itemData.path, pathname) || active ? 'text-main_deep_blue dark:text-white' : 'text-main_light_slate_blue'}`}
           />
         }
-        title={itemData.title}
+        title={t(itemData.title)}
       />
 
       <DropdownNavLinks data={itemData.children} pathname={pathname} active={active} />
