@@ -1,8 +1,8 @@
 'use client';
-import Image from 'next/image';
+import { useComputedColorScheme } from '@mantine/core';
 import { usePathname } from 'next/navigation';
 
-import Logo from '@/assets/images/logo.svg';
+import { Logo } from '@/assets/icons';
 import { Link } from '@/i18n/routing';
 
 import { sidebarList } from './lib/sidebar-data';
@@ -11,12 +11,14 @@ import { DropDownMenu, NavLink } from './ui';
 
 export const Sidebar = () => {
   const pathname = usePathname();
+  const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
+
   return (
     <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_4 text-white float-left sticky top-0'>
       <div className='w-full'>
         <div className='px-[27px] py-4 flex items-center '>
-          <Link href={`/`} className='text-center' aria-label='Main logo'>
-            <Image src={Logo} style={{ width: '100%', height: 60 }} alt='' priority />
+          <Link href={`/`} className='text-center h-[60px] w-auto' aria-label='Main logo'>
+            <Logo color={computedColorScheme === 'light' ? '#2b3674' : '#fff'} />
           </Link>
         </div>
       </div>

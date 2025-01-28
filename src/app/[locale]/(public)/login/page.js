@@ -55,10 +55,10 @@ export default function Login() {
       <div className='lg:hidden overflow-y-auto max-sm:mx-5  col-span-1 flex justify-center items-end relative'>
         {/* <div className={`w-full h-full bg-[url('/assets/images/login-banner.svg')] bg-no-repeat`} /> */}
         <Image
-          src='/assets/images/login-mobile-banner.svg'
+          src='/assets/images/new-login-banner.png'
           width={770}
           height={964}
-          className='w-[31.25rem] max-h-60'
+          className='w-[31.25rem] max-h-60 rounded-3xl'
           alt='Lock icon'
         />
       </div>
