@@ -63,7 +63,7 @@ export const DashboardMap = () => {
                   )}
                 </div>
                 <div>
-                  <Title size='2xl'>{data?.title || t('O‘zbekiston Respublikasi')}</Title>
+                  <Title size='2xl'>{data?.headers?.title || t('O‘zbekiston Respublikasi')}</Title>
                 </div>
               </div>
               <div className='flex justify-center mt-5'>
