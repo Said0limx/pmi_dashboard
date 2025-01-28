@@ -49,8 +49,8 @@ export const ScaleColorSettingsForm = () => {
           setFieldValue={setFieldValue}
           name='color_type_id'
           data={enumsMapper(colorTypes, { labelKey: 'title' })}
-          label={t('Tanlang')}
-          placeholder={t('Tanlang')}
+          label={t('Сolor type')}
+          placeholder={t('Сolor type')}
         />
         <Select
           clearable={false}

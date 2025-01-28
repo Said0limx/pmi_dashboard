@@ -93,13 +93,13 @@ export const sidebarList = () => {
         //   type: 'page',
         //   path: '/settings/scales-settings',
         // },
-        // {
-        //   id: 'scales-color-settings',
-        //   title: 'Scale color settings',
-        //   icon: IconAdjustmentsCog,
-        //   type: 'page',
-        //   path: '/settings/scales-color-settings',
-        // },
+        {
+          id: 'scales-color-settings',
+          title: 'Scale color settings',
+          icon: IconAdjustmentsCog,
+          type: 'page',
+          path: '/settings/scales-color-settings',
+        },
         {
           id: 'colors-list',
           title: 'Colors list',

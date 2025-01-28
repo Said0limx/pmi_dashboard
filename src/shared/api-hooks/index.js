@@ -189,7 +189,7 @@ export const useColorsList = ({ params, queryOptions } = { params: {}, queryOpti
 export const useColorTypesList = () => {
   return useFetch({
     key: 'color-type/list',
-    url: '/admin/color-type/list',
+    url: '/color-type/list',
   });
 };
 
