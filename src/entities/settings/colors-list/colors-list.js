@@ -20,9 +20,9 @@ const ColorsList = () => {
     <div>
       <ColorsListHeader openCreateModal={openFormModal} />
       <DeleteItem
-        url={`/admin/color/delete/${deleteModal.id}`}
+        url={`/color/delete/${deleteModal.id}`}
         onSuccess={() => {
-          queryClient.invalidateQueries({ queryKey: ['admin/color/list'] });
+          queryClient.invalidateQueries({ queryKey: ['color/list'] });
         }}
         opened={deleteModal.opened}
         close={closeDeleteModal}

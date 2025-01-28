@@ -35,7 +35,7 @@ export const useColorsForm = (close, data) => {
   const handleSubmit = (values) => {
     mutate(
       {
-        url: data?.id ? `/admin/color/update/${data?.id}` : '/admin/color/create',
+        url: data?.id ? `/color/update/${data?.id}` : '/color/create',
         data: values,
         method: data?.id ? 'PUT' : 'POST',
       },
@@ -44,7 +44,7 @@ export const useColorsForm = (close, data) => {
           close();
           form.reset();
           toast.success(data?.id ? 'Color updated' : 'Color created');
-          queryClient.invalidateQueries({ queryKey: ['admin/color/list'] });
+          queryClient.invalidateQueries({ queryKey: ['color/list'] });
         },
         onError: (error) => {
           error.response?.data?.data?.map((item) => {

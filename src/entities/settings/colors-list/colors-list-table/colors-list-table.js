@@ -8,7 +8,9 @@ import { useGetColorsList } from './hooks/use-get-colors-list';
 
 const ColorsListTable = ({ openDeleteModal, openEditModal }) => {
   const t = useTranslations();
-  const { data = [] } = useGetColorsList();
+  const { data = [] } = useGetColorsList({
+    params: { color_type_id: 1, include_original_title: true },
+  });
 
   return (
     <ContentBox>

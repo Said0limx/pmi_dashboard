@@ -1,8 +1,9 @@
 import { useFetch } from '@/shared/hooks';
 
-export const useGetColorsList = () => {
+export const useGetColorsList = ({ params }) => {
   return useFetch({
-    key: 'admin/color/list',
-    url: '/admin/color/list',
+    key: 'color/list',
+    url: '/color/list',
+    params,
   });
 };
