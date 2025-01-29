@@ -27,11 +27,11 @@ body {
 }
 
 html[data-mantine-color-scheme='dark'] body {
-  background: linear-gradient(109deg, #131b4b 13%, #2b3674 52.1%);
+  background: linear-gradient(109deg, #131b4b 13%, #121e64 52.1%);
 }
 
 :root[data-mantine-color-scheme='dark'] {
-  --mantine-color-body: #2b3674;
+  --mantine-color-body: #121e64;
 }
 
 @layer utilities {
@@ -151,17 +151,17 @@ html[data-mantine-color-scheme='dark'] .skeleton:before {
 }
 
 html[data-mantine-color-scheme='dark'] .skeleton:after {
-  background-color: rgba(64, 78, 154, 0.8);
+  background-color: #172a93cc;
 }
 
 .mantine-table-container {
   @apply border dark:border-[#424242] border-[#dee2e6];
 }
 .mantine-Table-table {
-  @apply dark:bg-main_blue_5 bg-white;
+  @apply dark:bg-[#0f207e] bg-white;
 }
 .mantine-Table-tbody .mantine-Table-tr {
-  @apply dark:hover:bg-[#2B3674] hover:bg-slate-200;
+  @apply dark:hover:bg-[#26276e] hover:bg-slate-200;
 }
 
 .recharts-surface {

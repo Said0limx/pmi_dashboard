@@ -14,7 +14,7 @@ export const Sidebar = () => {
   const computedColorScheme = useComputedColorScheme('light', { getInitialValueInEffect: true });
 
   return (
-    <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_4 text-white float-left sticky top-0'>
+    <div className='sidebar w-[250px] max-w-[290px] max-h-screen h-screen bg-white dark:bg-main_blue_5 text-white float-left sticky top-0'>
       <div className='w-full'>
         <div className='px-[27px] py-4 flex items-center '>
           <Link href={`/`} className='text-center h-[60px] w-auto' aria-label='Main logo'>

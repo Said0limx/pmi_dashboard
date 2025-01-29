@@ -17,6 +17,7 @@ const SourceItem = ({ title, amount, iconUrl, id }) => {
 
   const end = amount > 1000 ? (amount / 1000)?.toFixed(2) : Number(amount).toFixed(2);
 
+  // dark:bg-[#32419B]
   return (
     <div
       onClick={handleClick}
