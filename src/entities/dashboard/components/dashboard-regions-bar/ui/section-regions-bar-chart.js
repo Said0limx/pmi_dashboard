@@ -1,7 +1,6 @@
 'use client';
 import { useComputedColorScheme } from '@mantine/core';
 import { BarElement, CategoryScale, Chart, Legend, LinearScale } from 'chart.js';
-import zoomPlugin from 'chartjs-plugin-zoom';
 import { useRef } from 'react';
 import { Bar, getElementAtEvent } from 'react-chartjs-2';
 
@@ -9,7 +8,7 @@ import { useFilterStore } from '@/shared/store/use-filter-store';
 
 import { useAdjustData } from '../hooks/use-adjust-data';
 
-Chart.register([Legend, CategoryScale, LinearScale, BarElement, zoomPlugin]);
+Chart.register([Legend, CategoryScale, LinearScale, BarElement]);
 
 const SectionRegionBarChart = ({ data = [] }) => {
   const { setField } = useFilterStore();
@@ -71,22 +70,6 @@ const SectionRegionBarChart = ({ data = [] }) => {
           legend: {
             display: false,
           },
-
-          // zoom: {
-          //   pan: {
-          //     enabled: true,
-          //     mode: 'x',
-          //   },
-          //   zoom: {
-          //     pinch: {
-          //       enabled: true, // Enable pinch zooming
-          //     },
-          //     wheel: {
-          //       enabled: true, // Enable wheel zooming
-          //     },
-          //     mode: 'x',
-          //   },
-          // },
         },
       }}
     />
