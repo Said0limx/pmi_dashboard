@@ -18,7 +18,7 @@ const LineView = ({ data, headers, isLoading }) => {
   const stroke = useStrokeColor();
   const t = useTranslations();
 
-  const monthObject = headers?.reduce((acc, el) => ({ ...acc, [el.value]: el.title }), {});
+  const monthObject = headers?.periods?.reduce((acc, el) => ({ ...acc, [el.value]: el.title }), {});
   const mappedData = data?.map((el) => {
     return {
       ...el,
