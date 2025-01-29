@@ -1,5 +1,4 @@
-import { Progress, Tooltip } from '@mantine/core';
-import { useTranslations } from 'next-intl';
+import { Progress } from '@mantine/core';
 
 import { useFormatSum } from '@/shared/hooks';
 import { classNames } from '@/shared/utils';
@@ -21,21 +20,24 @@ const ChartLabels = ({ data = [], withPercent, withNumber, chartLabelItemClass, 
             withPercent={withPercent}
             chartLabelItemClass={chartLabelItemClass}
           />
-          <Tooltip label={formatSum(item, '', '', 'fact_amount', true)}>
-            <div
-              className={classNames(
-                'flex items-center gap-3 ml-3',
-                data.length - 1 === index && 'mb-3',
-              )}
-            >
-              <Progress
-                value={+item.fact_percentage?.slice(0, 2)}
-                className='w-full'
+          <div
+            className={classNames(
+              'flex items-center gap-3 ml-3',
+              data.length - 1 === index && 'mb-3',
+            )}
+          >
+            <Progress.Root size='xl' className='w-full'>
+              <Progress.Section
                 color='indigo'
-              />
-              <span className='text-sm'>{item.fact_percentage}</span>
-            </div>
-          </Tooltip>
+                value={+item.fact_percentage?.slice(0, 2)}
+              ></Progress.Section>
+              <Progress.Section value={100 - +item.fact_percentage?.slice(0, 2)} color='gray'>
+                <Progress.Label>
+                  {item.fact_percentage} - {formatSum(item, '', '', 'fact_amount', true)}
+                </Progress.Label>
+              </Progress.Section>
+            </Progress.Root>
+          </div>
         </div>
       ))}
     </div>

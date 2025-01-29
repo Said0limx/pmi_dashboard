@@ -53,10 +53,6 @@ const SectionRegionBarChart = ({ data = [] }) => {
                 const label = this.getLabelForValue(value);
                 return label.length > 10 ? label.slice(0, 10) + '...' : label;
               },
-              // callback: function (value, index, ticks) {
-              //   const label = this.getLabelForValue(value);
-              //   return label.split(' ').join('\n'); // Разбить по пробелам
-              // },
             },
           },
           y: {
