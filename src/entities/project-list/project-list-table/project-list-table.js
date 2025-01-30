@@ -2,29 +2,12 @@ import { Table } from '@mantine/core';
 import dayjs from 'dayjs';
 import { useTranslations } from 'next-intl';
 
+import { useGetProjectList } from '@/entities/dashboard/hooks';
 import { ContentBox } from '@/shared/ui';
-
-import { useGetProjectList } from './hooks/use-project-list';
 
 const ProjectListTable = () => {
   const t = useTranslations();
-  const { data = [] } = useGetProjectList({
-    body: {
-      period_type_id: 2,
-      period_id: null,
-      period_year_id: 7,
-      period_month_id: 1,
-      order_id: null,
-      region_id: null,
-
-      abroad_country_id: 792,
-      complex_ids: [],
-      sphere_id: null,
-      source_id: null,
-      industry_id: null,
-      authority_id: null,
-    },
-  });
+  const { data = [] } = useGetProjectList();
 
   return (
     <ContentBox>
