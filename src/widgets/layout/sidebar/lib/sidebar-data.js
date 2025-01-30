@@ -107,13 +107,13 @@ export const sidebarList = () => {
           type: 'page',
           path: '/settings/colors-list',
         },
-        // {
-        //   id: 'soato-region',
-        //   title: 'Soato region',
-        //   icon: IconMap2,
-        //   type: 'page',
-        //   path: '/settings/soato-region',
-        // },
+        {
+          id: 'soato-region',
+          title: 'Soato region',
+          icon: IconMap2,
+          type: 'page',
+          path: '/settings/soato-region',
+        },
         // {
         //   id: 'translation',
         //   title: 'Translation',
