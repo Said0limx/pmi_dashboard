@@ -109,19 +109,19 @@ export const sidebarList = () => {
           path: '/settings/colors-list',
         },
         {
+          id: 'soato-region',
+          title: 'Soato region',
+          icon: IconMap2,
+          type: 'page',
+          path: '/settings/soato-region',
+        },
+        {
           id: 'source-list',
           title: 'Source list',
           icon: IconBrandStackshare,
           type: 'page',
           path: '/settings/source-list',
         },
-        // {
-        //   id: 'soato-region',
-        //   title: 'Soato region',
-        //   icon: IconMap2,
-        //   type: 'page',
-        //   path: '/settings/soato-region',
-        // },
         // {
         //   id: 'translation',
         //   title: 'Translation',

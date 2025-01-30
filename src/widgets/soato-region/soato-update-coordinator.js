@@ -49,9 +49,9 @@ const Form = ({ initialValues, close, onSuccess }) => {
   const updateSoato = (values) => {
     mutate(
       {
-        url: `/admin/soato/${initialValues.id}/update`,
+        url: `/soato-region/edit/${initialValues.id}`,
         data: values,
-        method: 'POST',
+        method: 'PUT',
       },
       {
         onSuccess: ({ data }) => {

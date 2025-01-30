@@ -16,16 +16,21 @@ export const SoatoRegion = () => {
   const locale = useLocale();
   const { region_id } = useParams();
 
+  const queryClient = useQueryClient();
+
   const { data = [] } = useFetch({
-    key: region_id ? ['admin/soato/district-list', region_id] : ['admin/soato/region-list'],
-    url: region_id
-      ? `/admin/soato/district-list?region_id=${region_id}`
-      : '/admin/soato/region-list',
+    key: ['soato-region/list', region_id],
+    url: '/soato-region/list',
+    params: {
+      include_original_title: true,
+      is_parent: true,
+      parent_id: region_id,
+    },
   });
+
   const t = useTranslations();
   const [opened, { open, close }] = useDisclosure(false);
   const [initialValues, setInitialValues] = useState(null);
-  const queryClient = useQueryClient();
   return (
     <div>
       <SoatoUpdateCoordinator
@@ -37,9 +42,7 @@ export const SoatoRegion = () => {
         open={open}
         onSuccess={() => {
           queryClient.invalidateQueries({
-            queryKey: region_id
-              ? ['admin/soato/district-list', region_id]
-              : ['admin/soato/region-list'],
+            queryKey: ['soato-region/list', region_id],
           });
         }}
         initialValues={initialValues}
