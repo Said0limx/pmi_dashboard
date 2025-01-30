@@ -14,7 +14,7 @@ import {
   IconUser,
 } from '@tabler/icons-react';
 
-import { Door } from '@/assets/icons';
+import { Branch, Door } from '@/assets/icons';
 
 export const sidebarList = () => {
   return [
@@ -24,6 +24,13 @@ export const sidebarList = () => {
       icon: IconHome,
       type: 'page',
       path: '/',
+    },
+    {
+      id: 'project_list',
+      title: 'Loyihalar',
+      icon: Branch,
+      type: 'page',
+      path: '/project-list',
     },
     // {
     //   id: 'section_of_regions',
@@ -113,6 +120,13 @@ export const sidebarList = () => {
           icon: IconMap2,
           type: 'page',
           path: '/settings/soato-region',
+        },
+        {
+          id: 'source-list',
+          title: 'Source list',
+          icon: IconBrandStackshare,
+          type: 'page',
+          path: '/settings/source-list',
         },
         // {
         //   id: 'translation',
