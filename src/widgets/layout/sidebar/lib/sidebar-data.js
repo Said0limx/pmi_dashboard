@@ -115,6 +115,13 @@ export const sidebarList = () => {
           path: '/settings/colors-list',
         },
         {
+          id: 'colors-field-list',
+          title: 'Color fields',
+          icon: IconPaint,
+          type: 'page',
+          path: '/settings/colors-field-list',
+        },
+        {
           id: 'soato-region',
           title: 'Soato region',
           icon: IconMap2,
