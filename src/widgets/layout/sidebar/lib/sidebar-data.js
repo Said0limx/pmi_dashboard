@@ -11,6 +11,7 @@ import {
   IconMapPin,
   IconPaint,
   IconSettings,
+  IconSource,
   IconUser,
 } from '@tabler/icons-react';
 
@@ -106,6 +107,13 @@ export const sidebarList = () => {
           icon: IconPaint,
           type: 'page',
           path: '/settings/colors-list',
+        },
+        {
+          id: 'source-list',
+          title: 'Source list',
+          icon: IconBrandStackshare,
+          type: 'page',
+          path: '/settings/source-list',
         },
         // {
         //   id: 'soato-region',
