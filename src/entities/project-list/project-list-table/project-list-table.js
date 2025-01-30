@@ -24,9 +24,9 @@ const ProjectListTable = () => {
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {data.map((item) => (
+          {data.map((item, index) => (
             <Table.Tr key={item.project_id}>
-              <Table.Td>{item.project_id}</Table.Td>
+              <Table.Td>{index + 1}</Table.Td>
               <Table.Td className='max-w-[500px]'>{item.project_name}</Table.Td>
               <Table.Td>
                 {item.start_date ? dayjs(item.start_date, 'YYYY-MM-DD').format('DD.MM.YYYY') : ''}
