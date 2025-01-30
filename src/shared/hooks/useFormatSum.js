@@ -37,3 +37,21 @@ export const useFormatSum = () => {
 
   return { formatSum };
 };
+
+export const useFormatNum = () => {
+  const t = useTranslations();
+
+  const formatNum = (num) => {
+    let amount = Number(num);
+
+    if (amount > 1000) {
+      amount = `$${(amount / 1000).toFixed(2)} ${t('mlrd')}`;
+    } else {
+      amount = `$${amount.toFixed(2)} ${t('mln')}`;
+    }
+
+    return amount;
+  };
+
+  return { formatNum };
+};
