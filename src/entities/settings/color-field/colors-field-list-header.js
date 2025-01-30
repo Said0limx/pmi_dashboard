@@ -8,7 +8,7 @@ const ColorsFieldListHeader = ({ openCreateModal }) => {
   return (
     <ContentBox className='w-full p-5 mb-5'>
       <div className='flex justify-between'>
-        <Title>{t('Color field list')}</Title>
+        <Title>{t('Color fields list')}</Title>
         <Button onClick={() => openCreateModal()}>{t('Create')}</Button>
       </div>
     </ContentBox>

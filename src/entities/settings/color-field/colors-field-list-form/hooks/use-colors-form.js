@@ -31,7 +31,7 @@ export const useColorsFieldForm = (close, data) => {
   const handleSubmit = (values) => {
     mutate(
       {
-        url: data?.id ? `/color-field/update/${data?.id}` : '/color-field/create',
+        url: data?.id ? `/color-field/edit/${data?.id}` : '/color-field/create',
         data: values,
         method: data?.id ? 'PUT' : 'POST',
       },

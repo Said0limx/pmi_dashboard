@@ -28,9 +28,9 @@ const SourceListTable = ({ openEditModal }) => {
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {data.map((item) => (
+          {data.map((item, index) => (
             <Table.Tr key={item.id}>
-              <Table.Td>{item.id}</Table.Td>
+              <Table.Td>{index + 1}</Table.Td>
               <Table.Td>{item.title}</Table.Td>
               <Table.Td>
                 {item.created_at ? dayjs(item.created_at).format('DD.MM.YYYY') : ''}

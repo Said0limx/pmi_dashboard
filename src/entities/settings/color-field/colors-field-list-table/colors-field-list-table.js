@@ -28,9 +28,9 @@ const ColorsFieldListTable = ({ openDeleteModal, openEditModal }) => {
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
-          {data.map((item) => (
+          {data.map((item, index) => (
             <Table.Tr key={item.id}>
-              <Table.Td>{item.id}</Table.Td>
+              <Table.Td>{index + 1}</Table.Td>
               <Table.Td>{item.title_uz}</Table.Td>
               <Table.Td>{item.title_ru}</Table.Td>
               <Table.Td>{item.title_oz}</Table.Td>
