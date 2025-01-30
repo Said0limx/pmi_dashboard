@@ -745,6 +745,7 @@ export const SortAscendIcon = () => {
     </svg>
   );
 };
+
 export const SortDescendIcon = () => {
   return (
     <svg

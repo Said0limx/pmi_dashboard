@@ -157,6 +157,16 @@ export const useLineChart = () => {
     },
   });
 };
+export const useGetProjectList = () => {
+  const { body } = useMakeBody();
+
+  return useFetch({
+    key: '/project/list',
+    url: '/project/list',
+    method: 'POST',
+    body,
+  });
+};
 
 export const useClassificationsList = ({ onSuccess, extraBody = {}, queryOptions = {} } = {}) => {
   const { body, enabled } = useMakeBody();
