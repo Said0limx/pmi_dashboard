@@ -11,11 +11,10 @@ import {
   IconMapPin,
   IconPaint,
   IconSettings,
-  IconSource,
   IconUser,
 } from '@tabler/icons-react';
 
-import { Door } from '@/assets/icons';
+import { Branch, Door } from '@/assets/icons';
 
 export const sidebarList = () => {
   return [
@@ -25,6 +24,13 @@ export const sidebarList = () => {
       icon: IconHome,
       type: 'page',
       path: '/',
+    },
+    {
+      id: 'project_list',
+      title: 'Loyihalar',
+      icon: Branch,
+      type: 'page',
+      path: '/project-list',
     },
     // {
     //   id: 'section_of_regions',
