@@ -49,7 +49,7 @@ export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
               opacity: 1,
               scale: 1,
               display: 'flex',
-              height: '100%',
+              // height: '100%',
               flexDirection: 'column',
               justifyContent: 'space-between',
             }}
