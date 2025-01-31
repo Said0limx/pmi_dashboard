@@ -1,7 +1,7 @@
 import { Tooltip } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
-import { useFormatNum, useFormatSum } from '@/shared/hooks';
+import { useFormatNum } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { colors } from '@/shared/variables/colors';
 
@@ -38,7 +38,6 @@ const UzbekistanMap = ({ data }) => {
       {data?.map((region) => {
         return (
           <Tooltip
-            withArrow
             color='#1a759f'
             label={
               <div className='flex flex-col gap-1'>
