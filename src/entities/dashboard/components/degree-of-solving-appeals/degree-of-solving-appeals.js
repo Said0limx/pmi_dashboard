@@ -7,6 +7,8 @@ import ChartLabels from '@/entities/dashboard/ui/chart-labels';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, DonutChart, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
+import SourceBarChartContainer from '../source-bar-chart';
+
 export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
   const { data, isLoading, isFetching, isError, error } = useTasksResultType();
   const t = useTranslations();
@@ -64,7 +66,9 @@ export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
                   prefix: '$',
                 }}
               />
-              {!isLabelsHide && (
+              {isLabelsHide ? (
+                <div>{/* <SourceBarChartContainer /> */}</div>
+              ) : (
                 <ChartLabels
                   data={data?.data}
                   withNumber={false}

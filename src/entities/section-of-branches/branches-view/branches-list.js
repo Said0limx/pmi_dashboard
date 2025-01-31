@@ -3,7 +3,7 @@ import { Title } from '@mantine/core';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
-import { useTasksBySource, useTasksBySphere } from '@/entities/dashboard/hooks';
+import { useTasksBySphere } from '@/entities/dashboard/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 
 import BranchCard from './branch-card';
