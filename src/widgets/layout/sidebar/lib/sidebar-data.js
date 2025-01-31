@@ -33,6 +33,13 @@ export const sidebarList = () => {
       path: '/dashboard',
     },
     {
+      id: 'section_of_branches',
+      title: 'Sohalar',
+      icon: Branch,
+      type: 'page',
+      path: '/section-of-branches',
+    },
+    {
       id: 'project_list',
       title: 'Loyihalar',
       icon: Branch,
