@@ -1,5 +1,6 @@
 'use client';
 import { keepPreviousData } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 
 import { useFetch } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
@@ -34,6 +35,43 @@ const useMakeBody = () => {
 
       ...checkboxFields,
     },
+  };
+};
+
+export const useFetchPagination = (props) => {
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const fetchData = useFetch({
+    ...props,
+    params: {
+      ...props?.params,
+      page: pageNumber + 1,
+    },
+    dataKey: null,
+  });
+  const { data, isPending } = fetchData;
+
+  const pageCount = data?.meta?.total ? Math.ceil(data?.meta?.total / 20) : 0;
+
+  const nextPage = () => {
+    setPageNumber(Math.min(data?.meta?.current_page + 1, pageCount - 1));
+  };
+  const previousPage = () => {
+    setPageNumber(Math.max(data?.meta?.current_page - 1, 0));
+  };
+  const changePage = (pN) => {
+    setPageNumber(pN);
+  };
+
+  useEffect(() => {
+    if ((pageNumber != data?.meta?.current_page) & data?.meta?.current_page) {
+      setPageNumber(data?.meta?.current_page - 1);
+    }
+  }, [isPending]);
+
+  return {
+    ...fetchData,
+    paginationProps: { pageNumber, pageCount, nextPage, previousPage, changePage },
   };
 };
 
@@ -201,7 +239,7 @@ export const useLineChart = () => {
 export const useGetProjectList = () => {
   const { body } = useMakeBody();
 
-  return useFetch({
+  return useFetchPagination({
     key: '/project/list',
     url: '/project/list',
     method: 'POST',
@@ -211,7 +249,7 @@ export const useGetProjectList = () => {
 export const useGetProjectProblemList = () => {
   const { body } = useMakeBody();
 
-  return useFetch({
+  return useFetchPagination({
     key: '/project/problem-list',
     url: '/project/problem-list',
     method: 'POST',

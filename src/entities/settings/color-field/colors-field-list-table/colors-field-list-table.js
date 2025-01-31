@@ -15,7 +15,11 @@ const ColorsFieldListTable = ({ openDeleteModal, openEditModal }) => {
 
   return (
     <ContentBox>
-      <Table>
+      <Table
+        style={(theme) => ({
+          borderRadius: theme.radius.lg,
+        })}
+      >
         <Table.Thead>
           <Table.Tr>
             <Table.Th w={50}>#</Table.Th>

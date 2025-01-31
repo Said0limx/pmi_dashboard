@@ -10,6 +10,7 @@ export * from './loading-overlay';
 export * from './map-of-uzbekistan';
 export * from './multi-select';
 export * from './pagination';
+export * from './pagination-advanced';
 export * from './percent-badge';
 export * from './remove-query-button';
 export * from './router-transition';

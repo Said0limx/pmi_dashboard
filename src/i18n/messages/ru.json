@@ -164,17 +164,18 @@
   "Updated at": "Дата обновления",
   "Field": "Поле",
   "Color": "Цвет",
-  "Coordination": "Согласование",
+  "Coordination": "Координация",
   "Yes": "ДА",
   "Source list": "Список источников",
-  "Soato regions": "Soato регионы",
-  "Assign colors": "Назначить цвета",
+  "Soato regions": "Регионы по Soato",
+  "Assign colors": "Назначение цвета",
   "Color fields list": "Список цветовых полей",
-  "Color fields": "Список цветовых",
+  "Color fields": "Цветовые поля",
   "Colors list": "Список цветов",
   "Country": "Страна",
   "Countries": "Страны",
   "Sort": "Сортировать",
   "Icon": "Иконка",
-  "Loyihalar": "Проектный"
+  "Loyihalar": "Проекты",
+  "Tozalash": "Очистить фильтр"
 }

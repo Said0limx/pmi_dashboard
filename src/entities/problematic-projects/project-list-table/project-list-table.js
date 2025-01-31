@@ -1,14 +1,14 @@
 'use client';
-import { Table, Title } from '@mantine/core';
+import { Table } from '@mantine/core';
 import dayjs from 'dayjs';
 import { useTranslations } from 'next-intl';
 
 import { useGetProjectProblemList } from '@/entities/dashboard/hooks';
-import { ContentBox, Loader } from '@/shared/ui';
+import { ContentBox, Loader, PaginationAdvanced } from '@/shared/ui';
 
 const ProjectListTable = () => {
   const t = useTranslations();
-  const { data = [], isPending } = useGetProjectProblemList();
+  const { data, isPending, paginationProps } = useGetProjectProblemList();
 
   return (
     <ContentBox>
@@ -41,7 +41,7 @@ const ProjectListTable = () => {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {data.map((item, index) => (
+            {data?.data?.map((item, index) => (
               <Table.Tr
                 style={(theme) => ({
                   borderRadius: theme.radius.lg,
@@ -67,6 +67,11 @@ const ProjectListTable = () => {
             ))}
           </Table.Tbody>
         </Table>
+      )}
+      {paginationProps?.pageCount > 1 && (
+        <div className='mt-5 flex gap-2'>
+          <PaginationAdvanced paginationProps={paginationProps} />
+        </div>
       )}
     </ContentBox>
   );
