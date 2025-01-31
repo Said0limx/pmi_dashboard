@@ -56,6 +56,7 @@ function SphereBarChart({ data }) {
               titlesObject={titlesObject}
               colorList={[colors[4], colors[0]]}
               isLabelInPayload
+              isFormatted
             />
           }
           cursor={{ fill: '#fff', opacity: 0.1 }}
