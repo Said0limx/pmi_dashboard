@@ -9,9 +9,10 @@ import { useTasksByRegionMap } from '@/entities/dashboard/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
+import TotalInfo from '../source-bar-chart/ui/total-info';
 import UzbekistanMap from './ui/uzbekistan-map';
 
-export const DashboardMap = () => {
+export const DashboardMap = ({ showNumbers = true }) => {
   const { data = {}, isLoading, isFetching, isError, error } = useTasksByRegionMap();
   const { areaFields, setAreaField } = useFilterStore();
   const t = useTranslations();
@@ -66,11 +67,11 @@ export const DashboardMap = () => {
                   <Title size='2xl'>{data?.headers?.title || t('O‘zbekiston Respublikasi')}</Title>
                 </div>
               </div>
-              <div className='flex justify-center mt-5'>
+              <div className='flex justify-center -mt-5 mb-3'>
                 <UzbekistanMap data={data.data?.filter((el) => el.id != 9999)} />
               </div>
             </div>
-            <NumberOfAppeals />
+            {showNumbers ? <NumberOfAppeals /> : <TotalInfo />}
           </motion.div>
         )}
       </ContentBox>

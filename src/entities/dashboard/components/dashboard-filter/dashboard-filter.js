@@ -33,7 +33,7 @@ export const DashboardFilter = () => {
     source_id || order_id || abroad_country_id || sphere_id || industry_id || authority_id;
 
   return (
-    <div className='sticky top-0 z-20 bg-white dark:bg-main_blue_5 p-5 rounded-lg'>
+    <div className='sticky top-0 z-20  p-5 rounded-lg'>
       <div className='grid grid-cols-6 gap-5 items-center'>
         <PeriodTypeSelect filterOptions={(data) => data.filter((item) => item.value != 1)} />
         <PeriodYearSelect />

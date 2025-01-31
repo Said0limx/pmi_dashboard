@@ -7,7 +7,10 @@ import ChartLabels from '@/entities/dashboard/ui/chart-labels';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, DonutChart, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
-export const DegreeOfSolvingAppeals = () => {
+import { NumberOfAppeals } from '../dashboard-map/ui/appeals-count/appeals-count';
+import SourceBarChartContainer from '../source-bar-chart';
+
+export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
   const { data, isLoading, isFetching, isError, error } = useTasksResultType();
   const t = useTranslations();
   const { setField } = useFilterStore();
@@ -64,14 +67,21 @@ export const DegreeOfSolvingAppeals = () => {
                   prefix: '$',
                 }}
               />
-              <ChartLabels
-                data={data?.data}
-                withNumber={false}
-                withPercent={false}
-                chartLabelItemClass={'py-2'}
-                onClick={handleClick}
-              />
+              {isLabelsHide ? (
+                <div>
+                  <SourceBarChartContainer />
+                </div>
+              ) : (
+                <ChartLabels
+                  data={data?.data}
+                  withNumber={false}
+                  withPercent={false}
+                  chartLabelItemClass={'py-2'}
+                  onClick={handleClick}
+                />
+              )}
             </div>
+            {isLabelsHide && <NumberOfAppeals />}
           </motion.div>
         )}
       </ContentBox>

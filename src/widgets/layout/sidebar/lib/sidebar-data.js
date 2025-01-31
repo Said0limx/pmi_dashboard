@@ -26,6 +26,13 @@ export const sidebarList = () => {
       path: '/',
     },
     {
+      id: 'dashboard',
+      title: 'Dashboard',
+      icon: IconHome,
+      type: 'page',
+      path: '/dashboard',
+    },
+    {
       id: 'project_list',
       title: 'Loyihalar',
       icon: Branch,
