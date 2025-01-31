@@ -141,5 +141,16 @@
   "Tasdiqlash jarayonida": "В процессе утверждения",
   "Jami loyihalar": "Всего проектов",
   "Hal qilinmagan": "Нерешенный",
+  "Xavf darajasi": "Уровень риска",
+  "Muammo turlari": "Типы проблем",
+  "Muammoli loyihalar": "Проблемные проекты",
+  "Project name": "Название проекта",
+  "Problem name": "Название проблемы",
+  "Authority title": "Название организации",
+  "Status": "Статус",
+  "Start date": "Дата начала",
+  "Finish date": "Дата окончания",
+  "Region title": "Название региона",
+  "District title": "Название района",
   "Tozalash": "Очистить фильтр"
 }
