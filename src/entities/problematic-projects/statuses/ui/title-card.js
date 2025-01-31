@@ -10,7 +10,7 @@ const TitleCard = ({ title, url = '', end = 0, handleClick = () => {} }) => {
   return (
     <div
       onClick={handleClick}
-      className='p-[20px] bg-white dark:bg-[#32419B] rounded-xl flex flex-col justify-between border cursor-pointer'
+      className='p-[20px] bg-white dark:bg-transparent  dark:bg-blue-gradient rounded-xl flex flex-col justify-between border cursor-pointer'
     >
       <p className='text-xl text-color font-bold text-nowrap'>{title}</p>
       <div className='flex border my-3  dark:border-[#6271c4] ' />

@@ -40,7 +40,7 @@ const lightTheme = {
       showInLegend: true,
       dataLabels: {
         enabled: true,
-        format: '{point.y}%',
+        format: '{point.name}: {point.y}%',
         style: {
           color: 'black',
           fontWeight: 'medium',
@@ -144,6 +144,7 @@ export default function RiskPieChart({ title, data, loading, name = '' }) {
       <div className='mb-3 w-full text-left tracking-tighter text-2xl leading-8 text-color font-bold'>
         {title}
       </div>
+
       {loading ? (
         <Loader />
       ) : (
