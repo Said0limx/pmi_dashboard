@@ -102,6 +102,20 @@ export const useTasksBySource = () => {
     },
   });
 };
+export const useTasksBySphere = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/sphere/bar-chart',
+    method: 'POST',
+    dataKey: null,
+
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
 export const useTasksByRegionMap = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
