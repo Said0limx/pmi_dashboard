@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { memo } from 'react';
 
+import { DashboardFilter } from '@/entities/dashboard/components/dashboard-filter/dashboard-filter';
 import { DrawerAdditionalFilters } from '@/entities/main-filter/components/drawer-additional-filters';
 
 import { Avatar, DarkModeSwitcher } from './ui';
@@ -16,11 +17,12 @@ const Header = () => {
   const t = useTranslations();
 
   return (
-    <div className='w-full py-5 flex justify-between items-center'>
-      <h1 className='text-color text-[2.125rem] font-bold leading-[2.625rem]'>
+    <div className='w-full flex justify-between items-center'>
+      {/* <h1 className='text-color text-[2.125rem] font-bold leading-[2.625rem]'>
         {pageTitleKey ? t(pageTitleKey) : t('main_dashboard')}
-      </h1>
-      <div className='flex justify-between items-center gap-3'>
+      </h1> */}
+      <DashboardFilter />
+      <div className='flex justify-between gap-3'>
         <UserDetail />
         <LanguageSwitcher />
         <DrawerAdditionalFilters />

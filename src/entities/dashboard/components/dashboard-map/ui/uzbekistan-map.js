@@ -1,12 +1,14 @@
 import { Tooltip } from '@mantine/core';
+import { useTranslations } from 'next-intl';
 
-import { useFormatSum } from '@/shared/hooks';
+import { useFormatNum } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { colors } from '@/shared/variables/colors';
 
 const UzbekistanMap = ({ data }) => {
   const { areaFields, setAreaField } = useFilterStore();
-  const { formatSum } = useFormatSum();
+  const { formatNum } = useFormatNum();
+  const t = useTranslations();
 
   const regions = {
     1726: '0 0 303 325',
@@ -35,7 +37,23 @@ const UzbekistanMap = ({ data }) => {
     >
       {data?.map((region) => {
         return (
-          <Tooltip color='#1a759f' label={`${region.title}: ${formatSum(region)}`} key={region.id}>
+          <Tooltip
+            color='#1a759f'
+            label={
+              <div className='flex flex-col gap-1'>
+                <p className='font-bold'>{region.title}</p>
+                <div className='flex items-center gap-2'>
+                  <span>{t('Reja')}:</span>
+                  <span>{formatNum(region.plan_amount)}</span>
+                </div>
+                <div className='flex items-center gap-2'>
+                  <span>{t('Fakt')}:</span>
+                  <span>{formatNum(region.fact_amount)}</span>
+                </div>
+              </div>
+            }
+            key={region.id}
+          >
             <path
               onClick={() => {
                 if (!areaFields.region_id) {

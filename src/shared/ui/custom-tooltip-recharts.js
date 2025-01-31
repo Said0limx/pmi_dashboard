@@ -1,12 +1,16 @@
 import { colors } from '@/shared/variables/colors';
 
+import { useFormatNum } from '../hooks';
+
 export const CustomTooltipRecharts = ({
   label,
   payload,
   titlesObject,
   isLabelInPayload,
   colorList,
+  isFormatted = false,
 }) => {
+  const { formatNum } = useFormatNum();
   return (
     <div className='bg-white dark:bg-main_dark_blue p-2 rounded-lg max-w-[500px]'>
       <div className='text-color text-lg leading-6'>
@@ -22,7 +26,7 @@ export const CustomTooltipRecharts = ({
               ></div>
               <div className='text-color'>{titlesObject[item.name]}</div>
             </div>
-            <div className='text-color'>{item.value}</div>
+            <div className='text-color'>{isFormatted ? formatNum(item.value) : item.value}</div>
           </div>
         ))}
       </div>

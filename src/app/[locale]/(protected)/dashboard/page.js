@@ -2,16 +2,13 @@
 import { useMounted } from '@mantine/hooks';
 
 import { DashboardMap } from '@/entities/dashboard/components/dashboard-map/dashboard-map';
-import { DashboardRegionsBar } from '@/entities/dashboard/components/dashboard-regions-bar/dashboard-regions-bar';
 import DashboardSkeleton from '@/entities/dashboard/components/dashboard-skeleton/dashboard-skeleton';
 import { DegreeOfSolvingAppeals } from '@/entities/dashboard/components/degree-of-solving-appeals/degree-of-solving-appeals';
-import { NumberOfAppealsInSourceSection } from '@/entities/dashboard/components/number-of-appeals-in-source-section';
+import SphereBarChartContainer from '@/entities/dashboard/components/sphere-bar-chart/sphere-bar-chart-container';
+import ByRegions from '@/entities/section-of-branches/by-regions/by-regions';
 import { useValidateParams } from '@/shared/hooks/use-validate-params';
 
-import CountryBarChartContainer from './components/country-bar-chart-container';
-import DashboardLineChart from './components/dashboard-line-chart/dashboard-line-chart';
-
-const DashboardBody = () => {
+function Dashboard() {
   const loadParams = useValidateParams();
   const mounted = useMounted();
   if (!loadParams || !mounted) {
@@ -19,24 +16,25 @@ const DashboardBody = () => {
   }
 
   return (
-    <>
+    <div className='flex flex-col gap-5'>
       <div className='grid grid-cols-2 gap-5'>
-        <DashboardMap />
         <div>
-          <div className='mb-4'>
-            <DegreeOfSolvingAppeals />
+          <div className='h-full'>
+            <DegreeOfSolvingAppeals isLabelsHide />
             {/* <AppealsCountByEmployment /> */}
           </div>
-          <DashboardRegionsBar />
+          {/* <DashboardRegionsBar /> */}
         </div>
+        <DashboardMap showNumbers={false} />
       </div>
       <div className='grid xl:grid-cols-2 gap-5'>
-        <NumberOfAppealsInSourceSection />
-        <DashboardLineChart />
-      </div>
-      <CountryBarChartContainer />
-    </>
-  );
-};
+        <SphereBarChartContainer />
+        <ByRegions />
 
-export default DashboardBody;
+        {/* <NumberOfAppealsInSourceSection /> */}
+      </div>
+    </div>
+  );
+}
+
+export default Dashboard;

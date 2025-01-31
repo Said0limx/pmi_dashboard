@@ -1,11 +1,11 @@
 'use client';
+import { Title } from '@mantine/core';
+import { useTranslations } from 'next-intl';
 import {
   Area,
   Bar,
-  BarChart,
   CartesianGrid,
   ComposedChart,
-  Legend,
   Line,
   ResponsiveContainer,
   Tooltip,
@@ -13,100 +13,87 @@ import {
   YAxis,
 } from 'recharts';
 
-import { useFetch } from '@/shared/hooks';
+import { useTasksByMonth } from '@/entities/dashboard/hooks';
+import { useFormatNum, useStrokeColor } from '@/shared/hooks';
+import { LoadingOverlay } from '@/shared/ui';
+
 function generateData(data) {
-  //   if (!data.length) return [];
+  if (!data?.length) return [];
 
-  //   const result = data.map((item) => {
-  //     return {
-  //       title: item.title,
-  //       plan: Number(item.plan_amount),
-  //       fact: Number(item.fact_amount),
-  //       amt: Number(item.plan_amount),
-  //     };
-  //   });
+  const result = data.map((item) => {
+    return {
+      title: item.label,
+      plan: Number(item.plan_amount),
+      fact: Number(item.fact_amount),
+      month: Number(item.month),
+    };
+  });
 
-  return [
-    {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: 'Page B',
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: 'Page C',
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: 'Page D',
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: 'Page E',
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: 'Page F',
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: 'Page G',
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ];
+  return result;
 }
 
 export default function ByMonth() {
-  const { data = [] } = useFetch({
-    key: 'sphere-list',
-    url: '/dashboard/sphere-list',
-    method: 'POST',
-    body: {
-      period_type_id: 2,
-      period_year_id: 7,
-      period_id: null,
-      period_month_id: null,
-      order_id: null,
-      region_id: null,
-
-      abroad_country_id: null,
-      sphere_id: null,
-      industry_id: null,
-      complex_ids: [],
-      authority_id: null,
-    },
-  });
+  const t = useTranslations();
+  const { data, isLoading } = useTasksByMonth();
+  const stroke = useStrokeColor();
   return (
-    <div className='p-5 after:rounded-[1.25rem] rounded-[1.25rem] relative after:absolute after:inset-0 after:bg-content_box_bg dark:after:bg-main_blue_5 after:-z-10 shadow-[2px_3px_7.9px_1px_#0000000A]'>
-      <ResponsiveContainer width='100%' height={400}>
-        <ComposedChart data={generateData()}>
-          <XAxis dataKey='name' />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid stroke='#f5f5f5' />
-          <Area type='monotone' dataKey='amt' fill='#8884d8' stroke='#8884d8' />
-          <Bar dataKey='pv' barSize={20} fill='#41bbfa' />
-          <Bar dataKey='uv' barSize={20} fill='#9747ff' />
-          <Line type='monotone' dataKey='uv' stroke='#ff7300' />
-        </ComposedChart>
-      </ResponsiveContainer>
-    </div>
+    <LoadingOverlay isLoading={isLoading}>
+      <div className='p-5 after:rounded-[1.25rem] rounded-[1.25rem] relative after:absolute after:inset-0 after:bg-content_box_bg dark:after:bg-main_blue_5 after:-z-10 shadow-[2px_3px_7.9px_1px_#0000000A]'>
+        <div className='flex justify-between items-center pb-5'>
+          <Title size='lg'>{t("Oylar bo'yicha o'zlashtirish")}</Title>
+        </div>
+        <ResponsiveContainer width='100%' height={400}>
+          <ComposedChart data={generateData(data?.data)}>
+            <CartesianGrid strokeDasharray='3 3' />
+            <XAxis
+              tick={{ fill: stroke }}
+              dataKey='title'
+              angle={-20}
+              textAnchor='end'
+              interval={0}
+              height={70}
+            />
+            <YAxis tick={{ fill: stroke }} />
+            <Tooltip
+              cursor={{ fill: stroke, opacity: 0.1 }}
+              contentStyle={{ color: '#000' }}
+              content={<CustomTooltip />}
+            />
+            {/* <Legend visibility={'hidden'} /> */}
+            <CartesianGrid stroke='#f5f5f5' />
+            {/* <Area type='monotone' dataKey='plan' fill='#41bbfa' stroke='#8884d8' hide />
+          <Area type='monotone' dataKey='fact' fill='#9747ff' stroke='#8884d8' hide /> */}
+            <Bar dataKey='plan' barSize={20} name={t('Reja')} fill='#41bbfa' />
+            <Bar dataKey='fact' barSize={20} name={t('Fakt')} fill='#9747ff' />
+            {/* <Line
+            type='monotone'
+            className='text-none'
+            name={null}
+            dataKey='plan'
+            fillOpacity={0.3}
+          />
+          <Line type='monotone' name={null} dataKey='fact' stroke='#9747ff' /> */}
+          </ComposedChart>
+        </ResponsiveContainer>
+      </div>
+    </LoadingOverlay>
   );
 }
+
+const CustomTooltip = ({ active, payload }) => {
+  const { formatNum } = useFormatNum();
+  if (active && payload && payload.length) {
+    return (
+      <div style={{ background: '#fff', padding: '10px', borderRadius: '5px' }}>
+        {payload?.slice(0, 2).map((entry, index) => {
+          return (
+            <p key={index} style={{ color: entry.color }}>
+              {entry.name}: {formatNum(entry.value)}
+            </p>
+          );
+        })}
+      </div>
+    );
+  }
+  return null;
+};

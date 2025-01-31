@@ -101,6 +101,19 @@ export const useAbroadCountryList = () => {
     },
   });
 };
+export const useSourceBarChart = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/dashboard/source-parent-list',
+    method: 'POST',
+    dataKey: null,
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
 export const useTasksResultType = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
@@ -126,7 +139,7 @@ export const useTasksByCitizenAge = () => {
     },
   });
 };
-export const useTasksBySource = () => {
+export const useSphereList = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
     url: '/dashboard/sphere-list',
@@ -144,6 +157,34 @@ export const useTasksBySphere = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
     url: '/sphere/bar-chart',
+    method: 'POST',
+    dataKey: null,
+
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
+export const useTasksByMonth = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/sphere/master-by-month',
+    method: 'POST',
+    dataKey: null,
+
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
+export const useTotalInvestment = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/sphere/pie-chart',
     method: 'POST',
     dataKey: null,
 

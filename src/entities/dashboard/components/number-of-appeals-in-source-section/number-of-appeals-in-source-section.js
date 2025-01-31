@@ -3,14 +3,14 @@ import { IconArrowLeft } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
-import { useTasksBySource } from '@/entities/dashboard/hooks';
+import { useSphereList } from '@/entities/dashboard/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
 import Sources from './ui/sources';
 
 export const NumberOfAppealsInSourceSection = () => {
-  const { data, isLoading, isFetching, isError, error } = useTasksBySource();
+  const { data, isLoading, isFetching, isError, error } = useSphereList();
   const t = useTranslations();
 
   const { setField, sphere_id, industry_id } = useFilterStore();

@@ -6,14 +6,18 @@ import TotalInvestments from '@/entities/section-of-branches/total-investments/t
 
 export default function SectionOfBranches() {
   return (
-    <div className='grid grid-cols-2 gap-5'>
-      <BranchesList />
-      <TotalInvestments />
-      <div className='col-span-2'>
+    <div className='flex flex-col gap-5'>
+      <div className='grid grid-cols-2 gap-5 h-[400px]'>
+        <BranchesList />
+        <TotalInvestments />
+      </div>
+      <div className='h-[400px]'>
         <InitiatorsPercent />
       </div>
-      <ByMonth />
-      <ByRegions />
+      <div className='grid grid-cols-2 gap-5 '>
+        <ByMonth />
+        <ByRegions />
+      </div>
     </div>
   );
 }
