@@ -12,7 +12,7 @@ const MainLayout = ({ children }) => {
         <div className='absolute top-0 -left-24 -z-10 opacity-10'>
           <TopBgIcon />
         </div>
-        <div className='flex items-center px-5 gap-5 pt-3'>
+        <div className='flex items-center px-5 gap-5 '>
           {/* <SidebarToggle />  */}
           <Header />
         </div>

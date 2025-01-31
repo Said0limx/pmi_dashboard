@@ -5,7 +5,6 @@ import DashboardBody from '@/entities/dashboard/dashboard-body';
 const Dashboard = () => {
   return (
     <div className='flex flex-col gap-5'>
-      <DashboardFilter />
       <DashboardBody />
     </div>
   );

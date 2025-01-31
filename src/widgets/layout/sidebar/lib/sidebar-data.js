@@ -26,6 +26,20 @@ export const sidebarList = () => {
       path: '/',
     },
     {
+      id: 'dashboard',
+      title: 'Dashboard',
+      icon: IconHome,
+      type: 'page',
+      path: '/dashboard',
+    },
+    {
+      id: 'section_of_branches',
+      title: 'Sohalar',
+      icon: Branch,
+      type: 'page',
+      path: '/section-of-branches',
+    },
+    {
       id: 'project_list',
       title: 'Loyihalar',
       icon: Branch,
@@ -39,6 +53,7 @@ export const sidebarList = () => {
       type: 'page',
       path: '/problematic-projects',
     },
+
     // {
     //   id: 'section_of_regions',
     //   title: 'Hududlar kesimida',
