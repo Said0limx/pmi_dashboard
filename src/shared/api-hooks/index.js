@@ -193,6 +193,13 @@ export const useColorTypesList = () => {
   });
 };
 
+export const useColorfieldsList = () => {
+  return useFetch({
+    key: '/color-field/list',
+    url: '/color-field/list',
+  });
+};
+
 export const useExecutor = ({ onSuccess, queryOptions = {} } = {}) => {
   return useFetch({
     url: '/admin/strategy-executor/list',
