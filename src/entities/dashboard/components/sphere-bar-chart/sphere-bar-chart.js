@@ -54,7 +54,7 @@ function SphereBarChart({ data }) {
           content={
             <CustomTooltipRecharts
               titlesObject={titlesObject}
-              colorList={[colors[4], colors[0]]}
+              colorList={['#41bbfa', '#9747ff']}
               isLabelInPayload
               isFormatted
             />
@@ -64,11 +64,11 @@ function SphereBarChart({ data }) {
         />
         <Legend
           content={
-            <CustomLegendRecharts titlesObject={titlesObject} colorList={[colors[4], colors[0]]} />
+            <CustomLegendRecharts titlesObject={titlesObject} colorList={['#41bbfa', '#9747ff']} />
           }
         />
-        <Bar dataKey='plan_amount' name={'plan_amount'} fill={colors[4]} onClick={handleClick} />
-        <Bar dataKey='fact_amount' name={'fact_amount'} fill={colors[0]} onClick={handleClick} />
+        <Bar dataKey='plan_amount' name={'plan_amount'} fill={'#41bbfa'} onClick={handleClick} />
+        <Bar dataKey='fact_amount' name={'fact_amount'} fill={'#9747ff'} onClick={handleClick} />
       </BarChart>
     </ResponsiveContainer>
   );
