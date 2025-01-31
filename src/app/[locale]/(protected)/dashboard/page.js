@@ -17,23 +17,21 @@ function Dashboard() {
 
   return (
     <div className='flex flex-col gap-5'>
-      {/* <DashboardFilter /> */}
       <div className='grid grid-cols-2 gap-5'>
         <div>
-          <div className='mb-5'>
+          <div className='h-full'>
             <DegreeOfSolvingAppeals isLabelsHide />
             {/* <AppealsCountByEmployment /> */}
           </div>
           {/* <DashboardRegionsBar /> */}
         </div>
-        <DashboardMap />
+        <DashboardMap showNumbers={false} />
       </div>
       <div className='grid xl:grid-cols-2 gap-5'>
         <SphereBarChartContainer />
         <ByRegions />
 
         {/* <NumberOfAppealsInSourceSection /> */}
-        {/* <DashboardLineChart /> */}
       </div>
     </div>
   );

@@ -23,10 +23,7 @@ function SourceBarChart({ data }) {
 
   const { setField } = useFilterStore();
 
-  const titlesObject = {
-    self_project_amount: t('Yagona ishtirokchi sifatida'),
-    partnership_project_amount: t('Hamishtirokchi sifatidagi'),
-  };
+  let titlesObject = {};
 
   const handleClick = (el) => {
     if (el?.id) {
@@ -36,10 +33,32 @@ function SourceBarChart({ data }) {
     }
   };
 
+  let finalData = [];
+
+  if (data.length > 0) {
+    finalData = [
+      {
+        first_plan: data[0].plan_amount,
+        second_plan: data[1].plan_amount,
+        code_name: t('Reja'),
+      },
+      {
+        first_plan: data[0].fact_amount,
+        second_plan: data[1].fact_amount,
+        code_name: t('Fakt'),
+      },
+    ];
+
+    titlesObject = {
+      first_plan: data[0].title,
+      second_plan: data[1].title,
+    };
+  }
+
   return (
-    <ResponsiveContainer height={350} width={500}>
+    <ResponsiveContainer height={300} width={500}>
       <BarChart
-        data={data?.slice(0, 20)}
+        data={finalData}
         margin={{
           top: 20,
           right: 30,
@@ -53,9 +72,9 @@ function SourceBarChart({ data }) {
         <Tooltip
           content={
             <CustomTooltipRecharts
+              isLabelInPayload
               titlesObject={titlesObject}
               colorList={[colors[4], colors[0]]}
-              isLabelInPayload
             />
           }
         />
@@ -64,9 +83,16 @@ function SourceBarChart({ data }) {
             <CustomLegendRecharts titlesObject={titlesObject} colorList={[colors[4], colors[0]]} />
           }
         />
-        <Bar dataKey='self_project_amount' stackId='a' fill={colors[4]} onClick={handleClick} />
         <Bar
-          dataKey='partnership_project_amount'
+          barSize={100}
+          dataKey='first_plan'
+          stackId='a'
+          fill={colors[4]}
+          onClick={handleClick}
+        />
+        <Bar
+          barSize={100}
+          dataKey='second_plan'
           stackId='a'
           fill={colors[0]}
           onClick={handleClick}

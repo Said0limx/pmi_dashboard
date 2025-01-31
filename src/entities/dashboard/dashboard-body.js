@@ -20,10 +20,10 @@ const DashboardBody = () => {
 
   return (
     <>
-      <div className='grid grid-cols-2 gap-5 '>
+      <div className='grid grid-cols-2 gap-5'>
         <DashboardMap />
         <div>
-          <div className='mb-5'>
+          <div className='h-full'>
             <DegreeOfSolvingAppeals />
             {/* <AppealsCountByEmployment /> */}
           </div>

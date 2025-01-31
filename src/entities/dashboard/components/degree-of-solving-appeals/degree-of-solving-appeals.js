@@ -7,6 +7,7 @@ import ChartLabels from '@/entities/dashboard/ui/chart-labels';
 import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, DonutChart, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
+import { NumberOfAppeals } from '../dashboard-map/ui/appeals-count/appeals-count';
 import SourceBarChartContainer from '../source-bar-chart';
 
 export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
@@ -67,7 +68,9 @@ export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
                 }}
               />
               {isLabelsHide ? (
-                <div>{/* <SourceBarChartContainer /> */}</div>
+                <div>
+                  <SourceBarChartContainer />
+                </div>
               ) : (
                 <ChartLabels
                   data={data?.data}
@@ -78,6 +81,7 @@ export const DegreeOfSolvingAppeals = ({ isLabelsHide = false }) => {
                 />
               )}
             </div>
+            {isLabelsHide && <NumberOfAppeals />}
           </motion.div>
         )}
       </ContentBox>
