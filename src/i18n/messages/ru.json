@@ -146,7 +146,6 @@
   "Tasdiqlash jarayonida": "В процессе утверждения",
   "Jami loyihalar": "Всего проектов",
   "Hal qilinmagan": "Нерешенные",
-  "Tozalash": "Очистить фильтр",
   "Barchasi": "Все",
   "Xavf darajasi": "Уровень риска",
   "Muammo turlari": "Типы проблем",
@@ -177,5 +176,7 @@
   "Sort": "Сортировать",
   "Icon": "Иконка",
   "Loyihalar": "Проекты",
-  "Tozalash": "Очистить фильтр"
+  "Tozalash": "Очистить фильтр",
+  "2025 yilda Ishga tushiriladigan 100 ta, $152 mln Shundan periodda - 25 ta, $35 mln": "В 2025 году будет запущено 100 проектов на сумму $152 млн. Из них в указанном периоде – 25 проектов на сумму $35 млн.",
+  "2025 yilda yaratiladigan ish o‘rni soni 2500 ta Shundan periodda - 570 ta": "Количество рабочих мест, создаваемых в 2025 году, составит 2500. Из них в указанном периоде – 570."
 }

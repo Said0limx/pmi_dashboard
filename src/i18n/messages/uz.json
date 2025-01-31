@@ -45,7 +45,6 @@
   "RGB": "RGB",
   "Save": "Save",
   "Saved": "Saved",
-  "Scale color settings": "Scale color settings",
   "Scale table view": "Scale table view",
   "Setting title": "Setting title",
   "Something went wrong": "Something went wrong",
@@ -137,7 +136,6 @@
   "Complex": "Комплекслар бўйича",
   "Arxivlangan": "Архивланган",
   "Sozlamalar": "Созламалар",
-  "Tozalash": "Тозалаш",
   "section-of-branches": "Соҳалар кесимида",
   "Sohalar bo‘yicha jami investitsiyalar": "Соҳалар бўйича жами инвестициялар",
   "shundan xorijiy investitsiyalar va kreditlar": "шундан хорижий инвестициялар ва кредитлар",
@@ -178,5 +176,7 @@
   "Sort": "Саралаш",
   "Icon": "Белги",
   "Loyihalar": "Лойиҳалаштириш",
-  "Tozalash": "Тозалаш"
+  "Tozalash": "Тозалаш",
+  "2025 yilda Ishga tushiriladigan 100 ta, $152 mln Shundan periodda - 25 ta, $35 mln": "2025 йилда Ишга тушириладиган 100 та, $152 млн Шундан периодда - 25 та, $35 млн",
+  "2025 yilda yaratiladigan ish o‘rni soni 2500 ta Shundan periodda - 570 ta": "2025 йилда яратиладиган иш ўрни сони 2500 та Шундан периодда - 570 та"
 }

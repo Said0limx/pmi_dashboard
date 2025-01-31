@@ -1,6 +1,8 @@
+import { IconArrowLeft } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
+import { useFilterStore } from '@/shared/store/use-filter-store';
 import { ContentBox, Loader, LoadingOverlay, Title } from '@/shared/ui';
 
 import { useSphereList } from '../../hooks';
@@ -9,6 +11,16 @@ import SphereBarChart from './sphere-bar-chart';
 function SphereBarChartContainer() {
   const { data, isLoading, isFetching, isError, error } = useSphereList();
   const t = useTranslations();
+
+  const { setField, sphere_id, industry_id } = useFilterStore();
+
+  const handleBack = () => {
+    if (industry_id) {
+      setField('industry_id', null);
+    } else if (sphere_id) {
+      setField('sphere_id', null);
+    }
+  };
 
   if (isError) {
     return (
@@ -43,9 +55,22 @@ function SphereBarChartContainer() {
               justifyContent: 'space-between',
             }}
           >
-            <Title size='lg' className='text-center'>
-              {t('Tarmoqlar')}
-            </Title>
+            <div className='flex justify-between'>
+              <Title size='lg' className='text-center'>
+                {t('Sohalar bo‘yicha prognozlar')}
+              </Title>
+              {sphere_id && (
+                <div
+                  onClick={handleBack}
+                  className={
+                    'flex items-center gap-2 border px-2 rounded-lg cursor-pointer h-[40px]'
+                  }
+                >
+                  <IconArrowLeft />
+                  {t('Orqaga')}
+                </div>
+              )}
+            </div>
             <SphereBarChart data={data?.data} />
           </motion.div>
         )}
