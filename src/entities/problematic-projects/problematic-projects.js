@@ -10,8 +10,8 @@ import Statuses from './statuses/statuses';
 
 const ProblematicProjects = () => {
   const t = useTranslations();
-  const { data: risksdata = [], isPendingRisks } = useGetProblemProjectRisksCount();
-  const { data: typesdata = [], isPendingTypes } = useGetProblemProjectTypesCount();
+  const { data: risksdata = [], isPending: isPendingRisks } = useGetProblemProjectRisksCount();
+  const { data: typesdata = [], isPending: isPendingTypes } = useGetProblemProjectTypesCount();
 
   return (
     <div className='flex flex-col gap-8'>

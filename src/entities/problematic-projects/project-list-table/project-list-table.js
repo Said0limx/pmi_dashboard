@@ -13,14 +13,20 @@ const ProjectListTable = () => {
   return (
     <ContentBox>
       <div className='tracking-tighter text-2xl leading-8 text-color font-bold'>
-        {t('Projects')}
+        {t('Muammoli loyihalar')}
       </div>
       {isPending ? (
         <div className='flex min-h-52 justify-center items-center'>
           <Loader />
         </div>
       ) : (
-        <Table className='mt-6'>
+        <Table
+          style={(theme) => ({
+            borderRadius: theme.radius.lg,
+          })}
+          // striped
+          className='mt-6'
+        >
           <Table.Thead>
             <Table.Tr>
               <Table.Th w={50}>#</Table.Th>
@@ -36,7 +42,12 @@ const ProjectListTable = () => {
           </Table.Thead>
           <Table.Tbody>
             {data.map((item, index) => (
-              <Table.Tr key={index}>
+              <Table.Tr
+                style={(theme) => ({
+                  borderRadius: theme.radius.lg,
+                })}
+                key={index}
+              >
                 <Table.Td>{index + 1}</Table.Td>
                 <Table.Td className='max-w-[500px]'>{item.project_name}</Table.Td>
                 <Table.Td className='max-w-[500px]'>{item.project_problem_title}</Table.Td>

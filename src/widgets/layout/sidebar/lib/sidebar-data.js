@@ -152,7 +152,7 @@ export const sidebarList = () => {
         },
         {
           id: 'soato-region',
-          title: 'Soato region',
+          title: 'Soato regions',
           icon: IconMap2,
           type: 'page',
           path: '/settings/soato-region',

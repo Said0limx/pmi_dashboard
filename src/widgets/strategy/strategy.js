@@ -1,7 +1,9 @@
+'use client';
 import { ActionIcon, Badge, Skeleton, Table } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconEdit } from '@tabler/icons-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import { useFetch } from '@/shared/hooks';
@@ -11,6 +13,7 @@ import { makeImageUrl } from '@/shared/utils/make-image-url';
 import StrategyCreate from './strategy-create';
 
 export const Strategy = () => {
+  const t = useTranslations();
   const { data, isLoading } = useFetch({
     key: 'country/list',
     url: '/country/list',
@@ -25,7 +28,7 @@ export const Strategy = () => {
     <div>
       <ContentBox className='w-full p-5 mb-5'>
         <div className='flex justify-between'>
-          <Title>Country</Title>
+          <Title>{t('Country')}</Title>
         </div>
       </ContentBox>
       <StrategyCreate
@@ -58,13 +61,13 @@ export const Strategy = () => {
             <Table.Thead>
               <Table.Tr>
                 <Table.Th w={50}>№</Table.Th>
-                <Table.Th>Title OZ</Table.Th>
-                <Table.Th>Title UZ</Table.Th>
-                <Table.Th>Title RU</Table.Th>
-                <Table.Th w={50}>Sort</Table.Th>
-                <Table.Th w={70}>Icon</Table.Th>
-                <Table.Th w={50}>Enabled</Table.Th>
-                <Table.Th w={100}>Actions</Table.Th>
+                <Table.Th>{t('Title OZ')}</Table.Th>
+                <Table.Th>{t('Title UZ')}</Table.Th>
+                <Table.Th>{t('Title RU')}</Table.Th>
+                <Table.Th w={50}>{t('Sort')}</Table.Th>
+                <Table.Th w={70}>{t('Icon')}</Table.Th>
+                <Table.Th w={90}>{t('Status')}</Table.Th>
+                <Table.Th w={100}>{t('Actions')}</Table.Th>
               </Table.Tr>
             </Table.Thead>
             <Table.Tbody>
