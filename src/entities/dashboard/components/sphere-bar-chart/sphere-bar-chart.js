@@ -36,6 +36,10 @@ function SphereBarChart({ data }) {
     }
   };
 
+  const maxAmount = parseInt(
+    Math.max(...data.flatMap((item) => [Number(item.plan_amount), Number(item.fact_amount)])),
+  );
+
   return (
     <ResponsiveContainer height={'100%'}>
       <BarChart
@@ -49,7 +53,7 @@ function SphereBarChart({ data }) {
       >
         <CartesianGrid strokeDasharray='3 3' stroke={stroke} />
         <XAxis dataKey='title' stroke={stroke} angle={-15} textAnchor='end' height={70} />
-        <YAxis domain={['auto', 'auto']} stroke={stroke} />
+        <YAxis domain={[0, maxAmount]} stroke={stroke} />
         <Tooltip
           content={
             <CustomTooltipRecharts
