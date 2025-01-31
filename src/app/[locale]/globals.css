@@ -167,3 +167,6 @@ html[data-mantine-color-scheme='dark'] .skeleton:after {
 .recharts-surface {
   overflow: visible !important;
 }
+.dark .highcharts-legend-navigation {
+  color: white;
+}

@@ -33,11 +33,18 @@ export const sidebarList = () => {
       path: '/project-list',
     },
     {
-      id: 'section_of_branches',
-      title: 'Sohalar',
+      id: 'problematic_projects',
+      title: 'Muammoli loyihalar',
       icon: Branch,
       type: 'page',
-      path: '/section-of-branches',
+      path: '/problematic-projects',
+    },
+    {
+      id: 'problematic_projects',
+      title: 'Muammoli loyihalar',
+      icon: Branch,
+      type: 'page',
+      path: '/problematic-projects',
     },
     // {
     //   id: 'section_of_regions',
