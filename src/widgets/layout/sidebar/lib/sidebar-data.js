@@ -32,6 +32,13 @@ export const sidebarList = () => {
       type: 'page',
       path: '/project-list',
     },
+    {
+      id: 'problematic_projects',
+      title: 'Muammoli loyihalar',
+      icon: Branch,
+      type: 'page',
+      path: '/problematic-projects',
+    },
     // {
     //   id: 'section_of_regions',
     //   title: 'Hududlar kesimida',
