@@ -25,6 +25,13 @@ export const sidebarList = () => {
       type: 'page',
       path: '/',
     },
+    {
+      id: 'dashboard',
+      title: 'Dashboard',
+      icon: IconHome,
+      type: 'page',
+      path: '/dashboard',
+    },
     // {
     //   id: 'section_of_regions',
     //   title: 'Hududlar kesimida',
