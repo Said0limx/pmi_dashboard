@@ -21,12 +21,11 @@ export default function BranchesList() {
       setField('sphere_id', null);
     }
   };
-  console.log('data', data);
 
   return (
     <div className='p-5 after:rounded-[1.25rem] rounded-[1.25rem] relative after:absolute after:inset-0 after:bg-content_box_bg dark:after:bg-main_blue_5 after:-z-10 shadow-[2px_3px_7.9px_1px_#0000000A]'>
       <div className='flex justify-between items-center pr-8'>
-        <Title className='sticky top-0 p-5'>
+        <Title size={'lg'} className='sticky top-0 p-5'>
           {data?.headers?.breadcrumbs?.length > 0
             ? data?.headers?.breadcrumbs?.map((item) => item.title).join('  /  ')
             : t('Sohalar bo‘yicha prognozlar')}
