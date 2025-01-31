@@ -47,7 +47,12 @@ export const SoatoRegion = () => {
         }}
         initialValues={initialValues}
       />
-      <Table withColumnBorders>
+      <Table
+        style={(theme) => ({
+          borderRadius: theme.radius.lg,
+        })}
+        withColumnBorders
+      >
         <Table.Thead>
           <Table.Tr>
             <Table.Th align='center' w={50}>

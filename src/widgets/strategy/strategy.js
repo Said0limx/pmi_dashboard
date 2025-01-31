@@ -57,7 +57,12 @@ export const Strategy = () => {
           </>
         )}
         {!isLoading && (
-          <Table withColumnBorders>
+          <Table
+            style={(theme) => ({
+              borderRadius: theme.radius.lg,
+            })}
+            withColumnBorders
+          >
             <Table.Thead>
               <Table.Tr>
                 <Table.Th w={50}>№</Table.Th>
