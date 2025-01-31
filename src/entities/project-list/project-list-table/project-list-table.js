@@ -33,23 +33,29 @@ const ProjectListTable = () => {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {data?.data?.map((item, index) => (
-              <Table.Tr key={item.project_id}>
-                <Table.Td>{index + 1}</Table.Td>
-                <Table.Td className='max-w-[500px]'>{item.project_name}</Table.Td>
-                <Table.Td>
-                  {item.start_date ? dayjs(item.start_date, 'YYYY-MM-DD').format('DD.MM.YYYY') : ''}
-                </Table.Td>
-                <Table.Td>
-                  {item.finish_date
-                    ? dayjs(item.finish_date, 'YYYY-MM-DD').format('DD.MM.YYYY')
-                    : ''}
-                </Table.Td>
-                <Table.Td>{item.authority_title}</Table.Td>
-                <Table.Td>{item.region_title}</Table.Td>
-                <Table.Td>{item.district_title}</Table.Td>
-              </Table.Tr>
-            ))}
+            {data?.data?.map((item, index) => {
+              const count = Number(paginationProps?.pageNumber) * 20 + index + 1;
+
+              return (
+                <Table.Tr key={item.project_id}>
+                  <Table.Td>{count}</Table.Td>
+                  <Table.Td className='max-w-[500px]'>{item.project_name}</Table.Td>
+                  <Table.Td>
+                    {item.start_date
+                      ? dayjs(item.start_date, 'YYYY-MM-DD').format('DD.MM.YYYY')
+                      : ''}
+                  </Table.Td>
+                  <Table.Td>
+                    {item.finish_date
+                      ? dayjs(item.finish_date, 'YYYY-MM-DD').format('DD.MM.YYYY')
+                      : ''}
+                  </Table.Td>
+                  <Table.Td>{item.authority_title}</Table.Td>
+                  <Table.Td>{item.region_title}</Table.Td>
+                  <Table.Td>{item.district_title}</Table.Td>
+                </Table.Tr>
+              );
+            })}
           </Table.Tbody>
         </Table>
       )}
