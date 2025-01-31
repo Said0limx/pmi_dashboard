@@ -32,6 +32,13 @@ export const sidebarList = () => {
       type: 'page',
       path: '/project-list',
     },
+    {
+      id: 'section_of_branches',
+      title: 'Sohalar',
+      icon: Branch,
+      type: 'page',
+      path: '/section-of-branches',
+    },
     // {
     //   id: 'section_of_regions',
     //   title: 'Hududlar kesimida',

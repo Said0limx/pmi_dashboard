@@ -10,6 +10,7 @@ import { useState } from 'react';
 import { useTotalInvestment } from '@/entities/dashboard/hooks';
 import { useFormatNum, useStrokeColor } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
+import { LoadingOverlay } from '@/shared/ui';
 
 function generateOptions(data, t, stroke, isShowByPLan, formatNum, handleClick) {
   return {
@@ -22,20 +23,52 @@ function generateOptions(data, t, stroke, isShowByPLan, formatNum, handleClick) 
       },
       backgroundColor: 'transparent',
     },
+    legend: {
+      enabled: true, // Enable legend
+      layout: 'vertical',
+      align: 'right', // O'ngga joylash
+      verticalAlign: 'middle',
+
+      itemStyle: {
+        color: stroke,
+        fontWeight: 'bold',
+        textOutline: 'none',
+        fontSize: '14px',
+      },
+      itemHoverStyle: {
+        color: '#00000075', // Hover holatidagi matn rangi
+      },
+      labelFormatter: function () {
+        return `${this.point.name}: ${formatNum(this.y)}`;
+      },
+    },
+
     title: {
       text: '',
     },
+
     credits: {
       enabled: false,
+    },
+    tooltip: {
+      // useHTML: true,
+      formatter: function () {
+        return `${this.point.name}: ${formatNum(this.y)}`;
+      },
     },
     plotOptions: {
       pie: {
         allowPointSelect: true,
         cursor: 'pointer',
+        showInLegend: true,
         depth: 50,
         dataLabels: {
-          enabled: true,
-          format: '{point.name}: {point.y}',
+          enabled: false,
+          // useHTML: true,
+          formatter: function () {
+            return `${this.point.name}: ${formatNum(this.y)}`;
+          },
+
           style: {
             color: stroke,
             fontWeight: 'bold',
@@ -68,7 +101,7 @@ function generateOptions(data, t, stroke, isShowByPLan, formatNum, handleClick) 
 }
 
 export default function TotalInvestments() {
-  const { data } = useTotalInvestment();
+  const { data, isLoading } = useTotalInvestment();
   const t = useTranslations();
   const { formatNum } = useFormatNum();
   const stroke = useStrokeColor();
@@ -92,45 +125,48 @@ export default function TotalInvestments() {
   };
 
   return (
-    <div className='p-5 after:rounded-[1.25rem] rounded-[1.25rem] relative after:absolute after:inset-0 after:bg-content_box_bg dark:after:bg-main_blue_5 after:-z-10 shadow-[2px_3px_7.9px_1px_#0000000A]'>
-      <div className='flex items-center justify-between'>
-        <Title size='lg'>
-          {t('Tarmoqlar bo‘yicha jami investitsiyalar')} -{' '}
-          <span className='font-bold italic'>
-            {isShowByPLan
-              ? formatNum(data?.headers?.total_plan)
-              : formatNum(data?.headers?.total_fact)}
-          </span>
-          , {t('shundan xorijiy investitsiyalar va kreditlar')} –
-          <span className='font-bold italic'>
-            {isShowByPLan
-              ? formatNum(data?.headers?.total_source_plan)
-              : formatNum(data?.headers?.total_source_fact)}
-          </span>
-          .
-        </Title>
-        <div className='flex items-center gap-3'>
-          <Switch
-            checked={isShowByPLan}
-            onChange={(e) => setIsShowByPlan(e.target.checked)}
-            label={t('Reja')}
-            labelPosition='left'
-          />
-          {sphere_id && (
-            <div
-              onClick={handleBack}
-              className={'flex items-center gap-2 border px-2 rounded-lg cursor-pointer h-[40px]'}
-            >
-              <IconArrowLeft />
-              {t('Orqaga')}
-            </div>
-          )}
+    <LoadingOverlay isLoading={isLoading}>
+      <div className='p-5 rounded-[20px] dark:bg-main_blue_5'>
+        <div className='flex items-center justify-between'>
+          <Title size='lg'>
+            {t('Sohalar bo‘yicha jami investitsiyalar')} -{' '}
+            <span className='font-bold italic'>
+              {isShowByPLan
+                ? formatNum(data?.headers?.total_plan)
+                : formatNum(data?.headers?.total_fact)}
+            </span>
+            , {t('shundan xorijiy investitsiyalar va kreditlar')} –
+            <span className='font-bold italic'>
+              {isShowByPLan
+                ? formatNum(data?.headers?.total_source_plan)
+                : formatNum(data?.headers?.total_source_fact)}
+            </span>
+            .
+          </Title>
+          <div className='flex items-center gap-3'>
+            <Switch
+              checked={isShowByPLan}
+              onChange={(e) => setIsShowByPlan(e.target.checked)}
+              label={t('Reja')}
+              labelPosition='left'
+            />
+            {sphere_id && (
+              <div
+                onClick={handleBack}
+                className={'flex items-center gap-2 border px-2 rounded-lg cursor-pointer h-[40px]'}
+              >
+                <IconArrowLeft />
+                {t('Orqaga')}
+              </div>
+            )}
+          </div>
         </div>
+        <HighchartsReact
+          containerProps={{ style: { height: 350, width: '100%' } }}
+          highcharts={Highcharts}
+          options={generateOptions(data, t, stroke, isShowByPLan, formatNum, handleClick)}
+        />
       </div>
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={generateOptions(data, t, stroke, isShowByPLan, formatNum, handleClick)}
-      />
-    </div>
+    </LoadingOverlay>
   );
 }

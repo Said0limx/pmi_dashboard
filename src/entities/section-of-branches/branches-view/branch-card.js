@@ -91,11 +91,21 @@ export default function BranchCard({ item }) {
           </div>
         </div>
       </div>
-      <Tooltip label={`${t('Reja')} - ${planPercentage.toFixed(2)}%`} color='#41bbfa'>
-        <Progress value={planPercentage} className='rounded h-[22px]' color='#41bbfa' mt='md' />
+      <Tooltip label={`${t('Reja')} - ${item.period_plan_amount_percentage}%`} color='#41bbfa'>
+        <Progress
+          value={item.period_plan_amount_percentage}
+          className='rounded h-[22px]'
+          color='#41bbfa'
+          mt='md'
+        />
       </Tooltip>
-      <Tooltip label={`${t('Fakt')} - ${factPercentage.toFixed(2)}%`} color='#9747ff'>
-        <Progress value={factPercentage} className='rounded h-[22px]' color='#9747ff' mt='sm' />
+      <Tooltip label={`${t('Fakt')} - ${item.period_fact_amount_percentage}%`} color='#9747ff'>
+        <Progress
+          value={item.period_fact_amount_percentage}
+          className='rounded h-[22px]'
+          color='#9747ff'
+          mt='sm'
+        />
       </Tooltip>
     </div>
   );

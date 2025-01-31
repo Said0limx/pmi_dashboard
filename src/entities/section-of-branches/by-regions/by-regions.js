@@ -28,7 +28,7 @@ export default function ByRegions() {
   const { areaFields, setAreaField } = useFilterStore();
   const stroke = useStrokeColor();
 
-  const { data = {} } = useTasksByRegionMap();
+  const { data = {}, isLoading } = useTasksByRegionMap();
 
   const handleClick = (el) => {
     if (el?.id) {
