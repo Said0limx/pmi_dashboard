@@ -33,7 +33,7 @@ export const Sidebar = () => {
               >
                 <NavLink
                   title={item.title}
-                  href={checkPathMatch(item.path, pathname) ? '' : `/${item.path}`}
+                  href={checkPathMatch(item.path, pathname) ? '' : `${item.path}`}
                   icon={
                     <item.icon
                       width={24}

@@ -48,7 +48,7 @@ const LanguageSwitcher = () => {
 
   return (
     <motion.div
-      className='relative'
+      className='relative z-20'
       initial={false}
       animate={isOpen ? 'animate' : 'initial'}
       ref={ref}

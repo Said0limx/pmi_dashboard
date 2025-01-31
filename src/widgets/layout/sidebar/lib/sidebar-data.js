@@ -25,13 +25,7 @@ export const sidebarList = () => {
       type: 'page',
       path: '/',
     },
-    {
-      id: 'dashboard',
-      title: 'Dashboard',
-      icon: IconHome,
-      type: 'page',
-      path: '/dashboard',
-    },
+
     {
       id: 'section_of_branches',
       title: 'Sohalar',
@@ -163,6 +157,13 @@ export const sidebarList = () => {
           icon: IconBrandStackshare,
           type: 'page',
           path: '/settings/source-list',
+        },
+        {
+          id: 'dashboard',
+          title: 'Dashboard',
+          icon: IconHome,
+          type: 'page',
+          path: '/prev-dashboard',
         },
         // {
         //   id: 'translation',

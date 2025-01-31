@@ -11,7 +11,7 @@ function TotalInfo() {
         }
       >
         <div className={'text-color text-md font-semibold'}>
-          2025 йилда Ишга тушириладиган 100 та, $152 млн Шундан периодда - 25 та, $35 млн{' '}
+          {t('2025 yilda Ishga tushiriladigan 100 ta, $152 mln Shundan periodda - 25 ta, $35 mln')}
         </div>
       </div>
       <div
@@ -20,7 +20,7 @@ function TotalInfo() {
         }
       >
         <div className={'text-color text-md font-semibold'}>
-          2025 йилда яратиладиган иш ўрни сони 2500 та Шундан периодда - 570 та{' '}
+          {t('2025 yilda yaratiladigan ish o‘rni soni 2500 ta Shundan periodda - 570 ta')}
         </div>
       </div>
     </div>
