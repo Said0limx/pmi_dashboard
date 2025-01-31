@@ -116,6 +116,34 @@ export const useTasksBySphere = () => {
     },
   });
 };
+export const useTasksByMonth = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/sphere/master-by-month',
+    method: 'POST',
+    dataKey: null,
+
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
+export const useTotalInvestment = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/sphere/pie-chart',
+    method: 'POST',
+    dataKey: null,
+
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
 export const useTasksByRegionMap = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({

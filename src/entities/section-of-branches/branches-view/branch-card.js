@@ -1,7 +1,6 @@
 import { Divider, Progress, Tooltip } from '@mantine/core';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { format } from 'path';
 
 import { useFormatNum } from '@/shared/hooks';
 import { useFilterStore } from '@/shared/store/use-filter-store';
@@ -11,8 +10,24 @@ export default function BranchCard({ item }) {
   const t = useTranslations();
   const { setField, sphere_id } = useFilterStore();
   const { formatNum } = useFormatNum();
-  const planInPercent = (Number(item.plan_amount) / Number(item.year_amount)) * 100;
-  const factInPercent = (Number(item.fact_amount) / Number(item.year_amount)) * 100;
+
+  // Fact percentage
+  const currentFactAmount = parseFloat(item.fact_amount_current) || 0;
+  const previousFactAmount = parseFloat(item.fact_amount_previous) || 0;
+
+  const maxFactAmount = Math.max(currentFactAmount, previousFactAmount);
+  const minFactAmount = Math.min(currentFactAmount, previousFactAmount);
+
+  const factPercentage = maxFactAmount !== 0 ? (minFactAmount / maxFactAmount) * 100 : 0;
+
+  // Plan percentage
+  const currentPlanAmount = parseFloat(item.plan_amount_current) || 0;
+  const previousPlanAmount = parseFloat(item.plan_amount_previous) || 0;
+
+  const maxPlanAmount = Math.max(currentPlanAmount, previousPlanAmount);
+  const minPlanAmount = Math.min(currentPlanAmount, previousPlanAmount);
+
+  const planPercentage = maxPlanAmount !== 0 ? (minPlanAmount / maxPlanAmount) * 100 : 0;
 
   const handleClick = () => {
     if (sphere_id) {
@@ -76,17 +91,11 @@ export default function BranchCard({ item }) {
           </div>
         </div>
       </div>
-      <Tooltip
-        label={`${t('Reja')} - ${planInPercent ? planInPercent.toFixed(2) : 0}%`}
-        color='#41bbfa'
-      >
-        <Progress value={planInPercent} className='rounded h-[22px]' color='#41bbfa' mt='md' />
+      <Tooltip label={`${t('Reja')} - ${planPercentage.toFixed(2)}%`} color='#41bbfa'>
+        <Progress value={planPercentage} className='rounded h-[22px]' color='#41bbfa' mt='md' />
       </Tooltip>
-      <Tooltip
-        label={`${t('Fakt')} - ${factInPercent ? factInPercent.toFixed(2) : 0}%`}
-        color='#9747ff'
-      >
-        <Progress value={factInPercent} className='rounded h-[22px]' color='#9747ff' mt='sm' />
+      <Tooltip label={`${t('Fakt')} - ${factPercentage.toFixed(2)}%`} color='#9747ff'>
+        <Progress value={factPercentage} className='rounded h-[22px]' color='#9747ff' mt='sm' />
       </Tooltip>
     </div>
   );
