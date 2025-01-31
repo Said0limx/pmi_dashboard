@@ -167,6 +167,48 @@ export const useGetProjectList = () => {
     body,
   });
 };
+export const useGetProjectProblemList = () => {
+  const { body } = useMakeBody();
+
+  return useFetch({
+    key: '/project/problem-list',
+    url: '/project/problem-list',
+    method: 'POST',
+    body,
+  });
+};
+
+export const useGetProblemProjectStatuses = () => {
+  const { body } = useMakeBody();
+
+  return useFetch({
+    key: '/project/problem-status-count',
+    url: '/project/problem-status-count',
+    method: 'POST',
+    body,
+  });
+};
+
+export const useGetProblemProjectRisksCount = () => {
+  const { body } = useMakeBody();
+
+  return useFetch({
+    key: '/project/problem-risk-count',
+    url: '/project/problem-risk-count',
+    method: 'POST',
+    body,
+  });
+};
+export const useGetProblemProjectTypesCount = () => {
+  const { body } = useMakeBody();
+
+  return useFetch({
+    key: '/project/problem-type-count',
+    url: '/project/problem-type-count',
+    method: 'POST',
+    body,
+  });
+};
 
 export const useClassificationsList = ({ onSuccess, extraBody = {}, queryOptions = {} } = {}) => {
   const { body, enabled } = useMakeBody();

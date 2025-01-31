@@ -1,3 +1,4 @@
+'use client';
 import { useTranslations } from 'next-intl';
 
 import { useFilterStore } from '@/shared/store/use-filter-store';
