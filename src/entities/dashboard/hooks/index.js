@@ -102,6 +102,20 @@ export const useTasksBySource = () => {
     },
   });
 };
+export const useTasksBySphere = () => {
+  const { body, enabled } = useMakeBody();
+  return useFetch({
+    url: '/sphere/bar-chart',
+    method: 'POST',
+    dataKey: null,
+
+    body,
+    queryOptions: {
+      enabled,
+      placeholderData: keepPreviousData,
+    },
+  });
+};
 export const useTasksByRegionMap = () => {
   const { body, enabled } = useMakeBody();
   return useFetch({
@@ -141,6 +155,16 @@ export const useLineChart = () => {
       enabled,
       placeholderData: keepPreviousData,
     },
+  });
+};
+export const useGetProjectList = () => {
+  const { body } = useMakeBody();
+
+  return useFetch({
+    key: '/project/list',
+    url: '/project/list',
+    method: 'POST',
+    body,
   });
 };
 
