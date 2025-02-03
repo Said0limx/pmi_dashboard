@@ -27,7 +27,7 @@ body {
 }
 
 html[data-mantine-color-scheme='dark'] body {
-  background: linear-gradient(109deg, #131b4b 13%, #121e64 52.1%);
+  background: linear-gradient(109deg, #212f7f 13%, #121e64 52.1%);
 }
 
 :root[data-mantine-color-scheme='dark'] {
@@ -154,15 +154,26 @@ html[data-mantine-color-scheme='dark'] .skeleton:after {
   background-color: #172a93cc;
 }
 
-.mantine-table-container {
-  @apply border dark:border-[#424242] border-[#dee2e6];
-}
-.mantine-Table-table {
+/* .mantine-Table-table {
   @apply dark:bg-[#0f207e] bg-white;
-}
+} */
+/* for mantine table */
 .mantine-Table-tbody .mantine-Table-tr {
-  @apply dark:hover:bg-[#26276e] hover:bg-slate-200;
+  @apply dark:hover:bg-[#131B4B] hover:bg-slate-200;
+  @apply dark:text-white;
 }
+
+.mantine-Table-tr {
+  @apply even:bg-gradient-to-r even:from-[#444f91] even:via-[#1F2C74] even:to-[#283061] disabled:opacity-50 h-20 my-5 text-white border-b-0 rounded-3xl;
+}
+.mantine-Table-thead {
+  @apply bg-gradient-to-r from-[#444f91] via-[#1F2C74] to-[#283061] disabled:opacity-50 text-white rounded-3xl overflow-hidden;
+}
+.mantine-Table-thead {
+  @apply border-0;
+}
+
+/* for mantine table */
 
 .recharts-surface {
   overflow: visible !important;

@@ -13,7 +13,7 @@ const ColorsListTable = ({ openDeleteModal, openEditModal }) => {
   });
 
   return (
-    <ContentBox>
+    <ContentBox className='bg-transparent'>
       <Table
         style={(theme) => ({
           borderRadius: theme.radius.lg,
@@ -21,28 +21,32 @@ const ColorsListTable = ({ openDeleteModal, openEditModal }) => {
       >
         <Table.Thead>
           <Table.Tr>
-            <Table.Th w={50}>#</Table.Th>
+            <Table.Th w={50} className='rounded-tl-3xl rounded-bl-3xl pl-4'>
+              #
+            </Table.Th>
             <Table.Th>{t('Title UZ')}</Table.Th>
             <Table.Th>{t('Title RU')}</Table.Th>
             <Table.Th>{t('Title OZ')}</Table.Th>
             <Table.Th>{t('HEX')}</Table.Th>
             <Table.Th>{t('RGB')}</Table.Th>
-            <Table.Th w={100}>{t('Actions')}</Table.Th>
+            <Table.Th w={100} className='rounded-tr-3xl rounded-br-3xl pr-4'>
+              {t('Actions')}
+            </Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
           {data.map((item) => (
             <Table.Tr key={item.id}>
-              <Table.Td>{item.id}</Table.Td>
+              <Table.Td className='rounded-tl-3xl rounded-bl-3xl pl-4'>{item.id}</Table.Td>
               <Table.Td>{item.title_uz}</Table.Td>
               <Table.Td>{item.title_ru}</Table.Td>
               <Table.Td>{item.title_oz}</Table.Td>
-              <Table.Td className='flex gap-2 items-center'>
+              <Table.Td className='flex gap-2 items-center mt-5'>
                 <div style={{ background: item.hex_code }} className='w-5 h-5'></div>
                 {item.hex_code}
               </Table.Td>
               <Table.Td>{item.rgb}</Table.Td>
-              <Table.Td className='flex gap-2 items-center'>
+              <Table.Td className='flex gap-2 items-center rounded-tr-3xl rounded-br-3xl pr-4'>
                 <ActionIcon
                   variant='outline'
                   onClick={() =>

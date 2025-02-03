@@ -23,13 +23,17 @@ const ProjectListTable = () => {
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th w={50}>#</Table.Th>
+              <Table.Th w={50} className='rounded-tl-3xl rounded-bl-3xl pl-4'>
+                #
+              </Table.Th>
               <Table.Th>{t('Project name')}</Table.Th>
               <Table.Th>{t('Start date')}</Table.Th>
               <Table.Th>{t('Finish date')}</Table.Th>
               <Table.Th>{t('Authority title')}</Table.Th>
               <Table.Th>{t('Region title')}</Table.Th>
-              <Table.Th>{t('District title')}</Table.Th>
+              <Table.Th className=' rounded-tr-3xl rounded-br-3xl pr-4'>
+                {t('District title')}
+              </Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
@@ -38,7 +42,7 @@ const ProjectListTable = () => {
 
               return (
                 <Table.Tr key={item.project_id}>
-                  <Table.Td>{count}</Table.Td>
+                  <Table.Td className='rounded-tl-3xl rounded-bl-3xl pl-4'>{count}</Table.Td>
                   <Table.Td className='max-w-[500px]'>{item.project_name}</Table.Td>
                   <Table.Td>
                     {item.start_date
@@ -52,7 +56,9 @@ const ProjectListTable = () => {
                   </Table.Td>
                   <Table.Td>{item.authority_title}</Table.Td>
                   <Table.Td>{item.region_title}</Table.Td>
-                  <Table.Td>{item.district_title}</Table.Td>
+                  <Table.Td className=' rounded-tr-3xl rounded-br-3xl pr-4'>
+                    {item.district_title}
+                  </Table.Td>
                 </Table.Tr>
               );
             })}

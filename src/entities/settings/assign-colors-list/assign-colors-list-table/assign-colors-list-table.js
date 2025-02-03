@@ -19,7 +19,9 @@ const AssignColorsListTable = ({ openEditModal }) => {
       >
         <Table.Thead>
           <Table.Tr>
-            <Table.Th w={50}>#</Table.Th>
+            <Table.Th w={50} className='className=' text-1xl h-16 border-b-0>
+              #
+            </Table.Th>
             <Table.Th>{t('Field')}</Table.Th>
             <Table.Th>{t('Color')}</Table.Th>
             <Table.Th>{t('HEX')}</Table.Th>

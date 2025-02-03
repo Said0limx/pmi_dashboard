@@ -14,27 +14,32 @@ const ColorsFieldListTable = ({ openDeleteModal, openEditModal }) => {
   });
 
   return (
-    <ContentBox>
+    <ContentBox className='bg-transparent'>
       <Table
+        className='bg-[#1F2C7B] text-white'
         style={(theme) => ({
-          borderRadius: theme.radius.lg,
+          borderRadius: theme.radius.xl,
         })}
       >
         <Table.Thead>
-          <Table.Tr>
-            <Table.Th w={50}>#</Table.Th>
+          <Table.Tr className='text-1xl h-16 border-b-0'>
+            <Table.Th w={50} className='rounded-tl-3xl rounded-bl-3xl pl-4'>
+              #
+            </Table.Th>
             <Table.Th>{t('Title UZ')}</Table.Th>
             <Table.Th>{t('Title RU')}</Table.Th>
             <Table.Th>{t('Title OZ')}</Table.Th>
             <Table.Th>{t('Created at')}</Table.Th>
             <Table.Th>{t('Updated at')}</Table.Th>
-            <Table.Th w={100}>{t('Actions')}</Table.Th>
+            <Table.Th className=' gap-2 items-center rounded-tr-3xl rounded-br-3xl pr-4'>
+              {t('Actions')}
+            </Table.Th>
           </Table.Tr>
         </Table.Thead>
-        <Table.Tbody>
+        <Table.Tbody className='font-medium'>
           {data.map((item, index) => (
             <Table.Tr key={item.id}>
-              <Table.Td>{index + 1}</Table.Td>
+              <Table.Td className='rounded-tl-3xl rounded-bl-3xl pl-4'>{index + 1}</Table.Td>
               <Table.Td>{item.title_uz}</Table.Td>
               <Table.Td>{item.title_ru}</Table.Td>
               <Table.Td>{item.title_oz}</Table.Td>
@@ -45,7 +50,7 @@ const ColorsFieldListTable = ({ openDeleteModal, openEditModal }) => {
                 {item.updated_at ? dayjs(item.updated_at).format('DD.MM.YYYY') : ''}
               </Table.Td>
 
-              <Table.Td className='flex gap-2 items-center'>
+              <Table.Td className='flex gap-2 items-center mt-4'>
                 <ActionIcon
                   variant='outline'
                   onClick={() =>
