@@ -26,7 +26,7 @@ const TitleCard = ({ title, url = '', end = 0, handleClick = () => {} }) => {
           />
         </div>
         <p className='text-color text-[26px] font-bold leading-8 -tracking-[0.52px]'>
-          <CountUp end={end} duration={2} decimals={0} prefix='' suffix={` ${t('ta')}`} />
+          <CountUp end={end} duration={2} decimals={0} prefix='' />
         </p>
       </div>
     </div>
