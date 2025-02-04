@@ -23,18 +23,22 @@ const SourceListTable = ({ openEditModal }) => {
       >
         <Table.Thead>
           <Table.Tr>
-            <Table.Th w={50}>#</Table.Th>
+            <Table.Th w={50} className='rounded-tl-3xl rounded-bl-3xl pl-4'>
+              #
+            </Table.Th>
             <Table.Th>{t('Title')}</Table.Th>
             <Table.Th>{t('Created at')}</Table.Th>
             <Table.Th>{t('Updated at')}</Table.Th>
             <Table.Th>{t('HEX')}</Table.Th>
-            <Table.Th w={100}>{t('Actions')}</Table.Th>
+            <Table.Th w={100} className='rounded-tr-3xl rounded-br-3xl pr-4'>
+              {t('Actions')}
+            </Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
           {data.map((item, index) => (
             <Table.Tr key={item.id}>
-              <Table.Td>{index + 1}</Table.Td>
+              <Table.Td className='rounded-tl-3xl rounded-bl-3xl pl-4'>{index + 1}</Table.Td>
               <Table.Td>{item.title}</Table.Td>
               <Table.Td>
                 {item.created_at ? dayjs(item.created_at).format('DD.MM.YYYY') : ''}
@@ -48,7 +52,7 @@ const SourceListTable = ({ openEditModal }) => {
                   {item.color}
                 </div>
               </Table.Td>
-              <Table.Td className='flex gap-2 items-center'>
+              <Table.Td className='flex gap-2 items-center mt-4 rounded-tr-3xl rounded-br-3xl pr-4'>
                 <ActionIcon
                   variant='outline'
                   onClick={() =>

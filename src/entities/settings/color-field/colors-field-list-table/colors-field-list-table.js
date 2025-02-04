@@ -31,7 +31,7 @@ const ColorsFieldListTable = ({ openDeleteModal, openEditModal }) => {
             <Table.Th>{t('Title OZ')}</Table.Th>
             <Table.Th>{t('Created at')}</Table.Th>
             <Table.Th>{t('Updated at')}</Table.Th>
-            <Table.Th className=' gap-2 items-center rounded-tr-3xl rounded-br-3xl pr-4'>
+            <Table.Th className='gap-2 items-center rounded-tr-3xl rounded-br-3xl pr-4'>
               {t('Actions')}
             </Table.Th>
           </Table.Tr>

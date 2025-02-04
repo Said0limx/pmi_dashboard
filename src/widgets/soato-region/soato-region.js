@@ -34,6 +34,7 @@ export const SoatoRegion = () => {
   return (
     <div>
       <SoatoUpdateCoordinator
+        className='bg-black'
         opened={opened}
         close={() => {
           close();
@@ -55,21 +56,39 @@ export const SoatoRegion = () => {
       >
         <Table.Thead>
           <Table.Tr>
-            <Table.Th align='center' w={50}>
+            <Table.Th
+              align='center'
+              w={50}
+              className='rounded-tl-3xl rounded-bl-3xl pl-4 border-l-0 border-r-0'
+            >
               №
             </Table.Th>
-            <Table.Th>{t('Regions')}</Table.Th>
-            <Table.Th w={60}>{t('Coordination')}</Table.Th>
-            <Table.Th w={50}>{t('Actions')}</Table.Th>
+            <Table.Th className='border-l-0 border-r-0'>{t('Regions')}</Table.Th>
+            <Table.Th w={60} className='border-l-0 border-r-0'>
+              {t('Coordination')}
+            </Table.Th>
+            <Table.Th w={50} className='rounded-tr-3xl rounded-br-3xl pr-4'>
+              {t('Actions')}
+            </Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
           {data.map((item, index) => (
             <Table.Tr key={item.id}>
-              <Table.Td align='center'>{index + 1}</Table.Td>
-              <Table.Td>{item[`title_${locale}`]}</Table.Td>
-              <Table.Td align='center'>{item.coordination ? 'Yes' : 'No'}</Table.Td>
-              <Table.Td align='center'>
+              <Table.Td
+                align='center'
+                className='rounded-tl-3xl rounded-bl-3xl pl-4 border-l-0 border-r-0'
+              >
+                {index + 1}
+              </Table.Td>
+              <Table.Td className='border-l-0 border-r-0'>{item[`title_${locale}`]}</Table.Td>
+              <Table.Td align='center' className='border-l-0 border-r-0'>
+                {item.coordination ? 'Yes' : 'No'}
+              </Table.Td>
+              <Table.Td
+                align='center'
+                className='rounded-tr-3xl rounded-br-3xl pr-4 border-r-0 border-l-0'
+              >
                 <div className='flex gap-2 justify-center'>
                   <ActionIcon
                     variant='outline'

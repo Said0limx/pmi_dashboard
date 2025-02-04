@@ -11,7 +11,7 @@ const AssignColorsListTable = ({ openEditModal }) => {
   const { data = [] } = useGetAssignColorsList();
 
   return (
-    <ContentBox>
+    <ContentBox className='bg-transparent'>
       <Table
         style={(theme) => ({
           borderRadius: theme.radius.lg,
@@ -19,20 +19,22 @@ const AssignColorsListTable = ({ openEditModal }) => {
       >
         <Table.Thead>
           <Table.Tr>
-            <Table.Th w={50} className='className=' text-1xl h-16 border-b-0>
+            <Table.Th w={50} className='rounded-tl-3xl rounded-bl-3xl pl-4'>
               #
             </Table.Th>
             <Table.Th>{t('Field')}</Table.Th>
             <Table.Th>{t('Color')}</Table.Th>
             <Table.Th>{t('HEX')}</Table.Th>
             <Table.Th>{t('RGB')}</Table.Th>
-            <Table.Th w={100}>{t('Actions')}</Table.Th>
+            <Table.Th w={100} className='rounded-tr-3xl rounded-br-3xl pr-4'>
+              {t('Actions')}
+            </Table.Th>
           </Table.Tr>
         </Table.Thead>
         <Table.Tbody>
           {data.map((item, index) => (
             <Table.Tr key={index}>
-              <Table.Td>{index + 1}</Table.Td>
+              <Table.Td className='rounded-tl-3xl rounded-bl-3xl pl-4'>{index + 1}</Table.Td>
               <Table.Td>{item.field}</Table.Td>
               <Table.Td>{item.color}</Table.Td>
               <Table.Td className='flex gap-2 items-center'>
@@ -40,7 +42,7 @@ const AssignColorsListTable = ({ openEditModal }) => {
                 {item.hexCode}
               </Table.Td>
               <Table.Td>{item.rgba}</Table.Td>
-              <Table.Td className='flex gap-2 items-center'>
+              <Table.Td className='flex gap-2 items-center mt-4 rounded-tr-3xl rounded-br-3xl pr-4'>
                 <ActionIcon
                   variant='outline'
                   onClick={() =>
